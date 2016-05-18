@@ -4,23 +4,21 @@ link(href='../css/stylesheets/style.css', type='text/css'. rel='stylesheet')
 
 
 block content
-  div.row.login-container
-    form.col.s12.md8.l10(method="post" action="/welcome" style="margin-top:150px;margin-left:150px;")
-      .row
-        .input-field.col.s12.md4.l4
-          input#name.validate(type='text', name="user_name")
-          label(for='name') Nombre
+  .row
+     form.col.s12.m12.l6(method="post"  action="/validate" )
+        .row
+          .input-field.col.s12.md12.l6
+            input#email.validate(type="email", name="email")
+            label(for='email') Email
 
-      .row
-        .input-field.col.s12.md4.l4
-          input#email.validate(type='email', name="email")
-          label(for='email', data-error='wrong', data-success='right') Email
+        .row
+          .input-field.col.s12.md12.l6
+            input#password.validate(type="password", name="password")
+            label(for='password') Password
 
+        .row
+          button.btn.waves-effect.waves-light.col.s12.md4.l6(type='submit',name='action')
+           |Ingresa!
 
-      .row
-        .input-field.col.s12.md4.l4
-          input#password.validate(type='password', name="password")
-          label(for="password") Password
-
-      button.btn.waves-effect.waves-light.col.s12.md4.l4(type='submit',name='action')
-        |Registrarse
+        .row
+          Si aún no tienes cuenta&a(href='/register') Registrate!
