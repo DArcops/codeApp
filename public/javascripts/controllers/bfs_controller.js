@@ -25,9 +25,11 @@ angular.module('app',[])
         $scope.eval = false;
       }
       else{
-        $scope.calificacion = "Hay algo mal,revisalo por favor";
+        $scope.calificacion = "Hay algo mal";
         $scope.Color = "red";
       }
+      Materialize.toast($scope.calificacion, 4000,'rounded');
+
     };
 
   } );

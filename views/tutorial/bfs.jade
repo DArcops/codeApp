@@ -44,10 +44,19 @@ html(ng-app="app")
     div
       .row
         div.col.s12.m4.l4(style="width:300px; height:20px;")
+          a.dropdown-button.btn(href="#" style="width:200px;" data-activates="dropdown1") Hints
+          ul#dropdown1.dropdown-content(style="width:300px;")
+            li
+              a(href='#!') Con
+            li
+              a(href='#!') V[1].push_back(2);
+            li.divider
+            li
+              a(href='#!') Creas una arista de 1 a 2.
+
 
         div.col.s12.m10.l10(style="width:900px; height:30px;")
-          button.btn.blue(ng-click="validate()" style="width:250px" ng-show="eval") Evaluar!
-          h3(ng-show="message" style="color:{{Color}};") {{calificacion}}
+          a.btn.blue(ng-click="validate()" style="width:250px" ng-show="eval") Evaluar!
 
         a.btn(href='/bfs_tutorial/2' ng-show="btn_next") Siguiente!
 
@@ -56,4 +65,17 @@ html(ng-app="app")
 
     script(src="./javascripts/angular.min.js")
     script(src="./javascripts/controllers/bfs_controller.js")
-    script(src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js")
+    script(src="./javascripts/jquery-2.1.1.min.js")
+    script(src="./javascripts/materialize.min.js")
+
+    script.
+
+      $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+      });
