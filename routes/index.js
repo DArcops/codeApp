@@ -5,6 +5,10 @@ var mongoose     = require ('mongoose');
 var User         = require('../models/user');
 var router       = express.Router();
 
+
+var app = express();
+app.use(cookieParser());
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -25,10 +29,16 @@ router.get('/register',function(req,res){
   res.render('register/index');
 });
 
+router.get('/bfs_tutorial',function(req,res){
+  res.render('tutorial/bfs');
+});
+
 
 
 router.post('/welcome',function(req,res){
   var fields = req.body;
+  var session = req.cookies.sessionid;
+
 
   var data = {
     name    : req.body.user_name,

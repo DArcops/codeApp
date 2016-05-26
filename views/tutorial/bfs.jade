@@ -1,0 +1,59 @@
+doctype html
+html(ng-app="app")
+  head
+    link(href='min/plugin-min.css', type='text/css', rel='stylesheet')
+    link(href='min/custom-min.css', type='text/css', rel='stylesheet')
+    link(href='css/materialize.min.css', type='text/css'. rel='stylesheet')
+    link(href='css/stylesheets/style.css', type='text/css'. rel='stylesheet')
+
+  body(ng-controller="bfs_main as bf")
+    nav
+      div.nav-wrapper(style="color:#37474F;")
+        a(href="/")
+          h4 Graph app
+
+
+    div
+      .row
+        div#instructions.col.s12.m12.l4(style="resize:none; width:300px; height:520px; overflow-y:auto;" data-role="none")
+          h5 Representación de un Grafo
+          p
+            En En esta primera actividad , aprenderas como construir un grafo en lenguaje en C++.
+
+          p
+            A continuación en las primeras dos lineas preparamos las librerias de C++.Lo siguiente es armar un vector de vectores que tendrá la representación de nuestro grafo.
+            Si no conoces esta estructura , te recomendamos leer el reference
+            para los vectores.
+
+          img(src="./images/bfs.gif")
+
+          p
+            De De esta forma , nuestro grafo se vera como una matriz en donde cada indice contendrá una lista de los nodos al i-esimo nodo en el grafo
+            como se muestra en la siguiente forma.
+
+          h5 Instrucciones:
+          p
+            EN Implementando un vector de vectores y mediante el uso de push_back, crea el siguiente grafo:
+          h6 Nota: el grafo es dirigido.
+
+
+
+        textarea#lienxzo.col.s12.m9.l9(style="background-color:#37474F; color:#FFFFFF; padding-top:5px; padding-left:10px; height:520px; width:1010px;" ng-model="text"){{text}}
+
+
+    div
+      .row
+        div.col.s12.m4.l4(style="width:300px; height:20px;")
+
+        div.col.s12.m10.l10(style="width:900px; height:30px;")
+          button.btn.blue(ng-click="validate()" style="width:250px" ng-show="eval") Evaluar!
+          h3(ng-show="message" style="color:{{Color}};") {{calificacion}}
+
+        a.btn(href='/bfs_tutorial/2' ng-show="btn_next") Siguiente!
+
+
+
+
+    script(src="./javascripts/angular.min.js")
+    script(src="./javascripts/controllers/bfs_controller.js")
+    script(src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js")
