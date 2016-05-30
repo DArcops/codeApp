@@ -15,8 +15,7 @@ angular.module('app',[])
 
       intent = $scope.text.replace(/\n| /g,"");
       answer = answer.replace(/\n| /g,"");
-      console.log(intent);
-      console.log(answer);
+    
 
       if(intent == answer){
         $scope.calificacion = "Accepted";

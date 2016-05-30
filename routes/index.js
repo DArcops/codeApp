@@ -14,14 +14,34 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/bfs_tutorial/2',function(req,res){
+  res.render('tutorial/bfs2');
+});
+
+
 router.get('/login',function(req,res){
   res.render('login/index');
 });
 
 router.post('/validate',function(req,res){
-  User.find({"password":req.body.password},function(err,data){
-    if(!err)
-      console.log(data);
+  console.log(req);
+  User.find({"email":req.body.email},function(err,data){
+    if(!err){
+      if(data[0].password == req.body.password){
+        var user = {
+          name : data[0].name,
+          email: data[0].email
+        };
+        res.render('user/index',{nombre :user.name});
+
+      }
+      else{
+        console.log("db : "+data.password);
+        console.log("req: "+req.body.password);
+        res.render('login/index');
+      }
+    }
+
   });
 });
 
