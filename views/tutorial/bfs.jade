@@ -7,15 +7,14 @@ html(ng-app="app")
     link(href='css/stylesheets/style.css', type='text/css'. rel='stylesheet')
 
   body(ng-controller="bfs_main as bf")
-    nav
+    nav.blue
       div.nav-wrapper(style="color:#37474F;")
-        a(href="/")
-          h4 Graph app
+        a(href="/").brand-logo.center Graph app
 
 
-    div
+    div.container
       .row
-        div#instructions.col.s12.m12.l4(style="resize:none; width:300px; height:520px; overflow-y:auto;" data-role="none")
+        div#instructions.col.s12.m12.l4(style="resize:none; width:100%; height:100%; overflow-y:auto;" data-role="none")
           h5 Representación de un Grafo
           p
             En En esta primera actividad , aprenderas como construir un grafo en lenguaje en C++.
@@ -35,17 +34,16 @@ html(ng-app="app")
           p
             EN Implementando un vector de vectores y mediante el uso de push_back, crea el siguiente grafo:
           img(src="./images/first_example.png")
-          
+
           h6 Nota: el grafo es dirigido.
 
 
+      .row.center-align
+        textarea#lienxzo.col.s12.m9.l9(style="background-color:#37474F; color:#FFFFFF; padding-top:5px; padding-left:10px; height:520px; width:100%;" ng-model="text"){{text}}
 
-        textarea#lienxzo.col.s12.m9.l9(style="background-color:#37474F; color:#FFFFFF; padding-top:5px; padding-left:10px; height:520px; width:1010px;" ng-model="text"){{text}}
-
-
-    div
-      .row
-        div.col.s12.m4.l4(style="width:300px; height:20px;")
+    div.container.hide-on-med-and-up
+      div.row.center-align
+        div.col.s12
           a.dropdown-button.btn(href="#" style="width:200px;" data-activates="dropdown1") Hints
           ul#dropdown1.dropdown-content(style="width:300px;")
             li
@@ -55,13 +53,32 @@ html(ng-app="app")
             li.divider
             li
               a(href='#!') Creas una arista de 1 a 2.
+        br
+        br
+        
+        div.row.center-align
+          div.col.s12
+            a.btn.blue(ng-click="validate()" style="width:250px" ng-show="eval") Evaluar!
 
-
-        div.col.s12.m10.l10(style="width:900px; height:30px;")
+          a.btn(href='/bfs_tutorial/2' ng-show="btn_next") Siguiente!
+    
+    div.container.hide-on-small-only
+      div.row
+        div.col.m6.l4
+          a.dropdown-button.btn(href="#" style="width:200px;" data-activates="dropdown1") Hints
+          ul#dropdown1.dropdown-content(style="width:300px;")
+            li
+              a(href='#!') Con
+            li
+              a(href='#!') V[1].push_back(2);
+            li.divider
+            li
+              a(href='#!') Creas una arista de 1 a 2.
+        
+        div.col.m6.l4
           a.btn.blue(ng-click="validate()" style="width:250px" ng-show="eval") Evaluar!
 
-        a.btn(href='/bfs_tutorial/2' ng-show="btn_next") Siguiente!
-
+        //a.btn(href='/bfs_tutorial/2' ng-show="btn_next") Siguiente!
 
 
 
