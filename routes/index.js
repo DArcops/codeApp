@@ -14,6 +14,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/loco', function(req, res, next) {
+  res.render('login/loco')
+})
+
 router.get('/bfs_tutorial/2',function(req,res){
   res.render('tutorial/bfs2');
 });
