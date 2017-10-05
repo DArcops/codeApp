@@ -1,6 +1,6 @@
 angular.module('app',[])
   .controller('bfs_main',function($scope){
-
+    console.log("que pedoooo22")
     var intent = "";
     var answer  = "#include <bits/stdc++.h>\nusing namespace std;\nvector< vector<int> > V;\n\nint main(){\nV.assign(nodos+10,vector<int>());\nV[1].push_back(2);\nV[2].push_back(3);\nV[3].push_back(1);\nreturn 0;\n}";
     $scope.message = false;
@@ -15,7 +15,7 @@ angular.module('app',[])
 
       intent = $scope.text.replace(/\n| /g,"");
       answer = answer.replace(/\n| /g,"");
-    
+
 
       if(intent == answer){
         $scope.calificacion = "Accepted";
