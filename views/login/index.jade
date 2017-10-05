@@ -5,7 +5,7 @@ link(href='../css/stylesheets/style.css', type='text/css'. rel='stylesheet')
 
 block content
   .row
-     form.col.s12.m8.l6(style="position: absolute; left: 45%; margin-left: -100px; padding-top:200px;" ng-submit='submit()', ng-controller='Login')
+     form.col.m5(style="position: fixed; left: 40%;top:40%;" ng-submit='submit()', ng-controller='Login')
         .row
           .input-field.col.s12.md12.l6()
             input#email.validate(type="email", name="email", ng-model="email")
