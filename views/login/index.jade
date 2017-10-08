@@ -5,15 +5,15 @@ link(href='../css/stylesheets/style.css', type='text/css'. rel='stylesheet')
 
 block content
   .row
-     form.col.s12.m8.l6(method="post"  action="/validate" style="position: absolute; left: 45%; margin-left: -100px; padding-top:200px;")
+     form.col.m5(style="position: fixed; left: 40%;top:40%;" ng-submit='submit()', ng-controller='Login')
         .row
           .input-field.col.s12.md12.l6()
-            input#email.validate(type="email", name="email")
+            input#email.validate(type="email", name="email", ng-model="email")
             label(for='email') Email
 
         .row
           .input-field.col.s12.md12.l6
-            input#password.validate(type="password", name="password")
+            input#password.validate(type="password", name="password" ng-model="pass")
             label(for='password') Password
 
         .row
@@ -23,3 +23,7 @@ block content
         .row
           Si aún no tienes cuenta
           a(href='/register') Registrate!
+
+          script(src="./javascripts/angular.min.js")
+          script(src="./javascripts/controllers/login.js")
+          script(src="./javascripts/jquery-2.1.1.min.js")
