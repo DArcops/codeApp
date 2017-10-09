@@ -148,6 +148,8 @@ html(lang='en')
           a.link(href='', data-toggle='tooltip', title='Logout')
             i.mdi.mdi-power
         // End Bottom points
+
+
       // ==============================================================
       // End Left Sidebar - style you can find in sidebar.scss
       // ==============================================================
@@ -155,6 +157,9 @@ html(lang='en')
       // Page wrapper
       // ==============================================================
       .page-wrapper
+
+        block content
+
         // ==============================================================
         // Container fluid
         // ==============================================================
@@ -470,7 +475,8 @@ html(lang='en')
         // ==============================================================
         // footer
         // ==============================================================
-        footer.footer  © dialgorithm
+        block footer
+          footer.footer  © dialgorithm
         // ==============================================================
         // End footer
         // ==============================================================
@@ -484,7 +490,6 @@ html(lang='en')
     // All Jquery
     // ==============================================================
 
-    block content
 
     script(src='min/jquery.min.js')
     // Bootstrap tether Core JavaScript

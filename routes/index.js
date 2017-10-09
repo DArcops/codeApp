@@ -22,6 +22,9 @@ router.get('/bfs_tutorial/2',function(req,res){
   res.render('tutorial/bfs2');
 });
 
+router.get('/dashboard',function(req,res,next){
+  res.render('dashboard/courses')
+});
 
 router.get('/login',function(req,res){
   res.render('login/index');
