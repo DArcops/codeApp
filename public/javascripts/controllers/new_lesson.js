@@ -37,6 +37,7 @@ angular.module('app', [])
       //           console.log(status)
       //         });
       console.log($scope.selectedCourse)
+      console.log($('#summernote').summernote('code'));
     }
 
   });
