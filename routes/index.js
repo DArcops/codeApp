@@ -22,9 +22,18 @@ router.get('/bfs_tutorial/2',function(req,res){
   res.render('tutorial/bfs2');
 });
 
-router.get('/dashboard',function(req,res,next){
-  res.render('dashboard/courses')
+router.get('/dashboard/p',function(req,res,next){
+  res.render('./login/loco')
 });
+
+router.get('/new_course',function(req,res,next){
+  res.render('./course/new2')
+});
+
+// router.get('/dashboard/:id',function(req,res,next){
+//   res.send('que pedo '+req.params.id)
+// });
+
 
 router.get('/login',function(req,res){
   res.render('login/index');
