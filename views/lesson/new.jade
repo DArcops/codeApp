@@ -10,12 +10,8 @@ block content
         .form-group
           label.col-sm-12 Selecciona Curso
           .col-sm-12
-            select.form-control.form-control-line
-              option London
-              option India
-              option Usa
-              option Canada
-              option Thailand
+            select.form-control.form-control-line(ng-model='selectedCourse')
+              option(ng-repeat='course in courses' value='{{course.id}}'){{course.name}}
           .form-group
             label.col-sm-12 Selecciona Nivel
             .col-sm-12
@@ -25,15 +21,14 @@ block content
                 option 3
                 option 4
                 option 5
-        .form-group
-          .col-sm-12
-            button.btn.btn-success(type='submit',name='action' ng-click='submit()') Crear
+
 
     #summernote
-      p Hello Summernote
+      p Escribe la lección
 
-    a.btn-floating.btn-large.waves-effect.waves-light.blue
-        i.material-icons +
+    .form-group
+      .col-sm-12
+        button.btn.btn-success(type='submit',name='action' ng-click='submit()') Crear
 
 
     script(src="./javascripts/angular.min.js")
