@@ -1,0 +1,45 @@
+
+
+extends ../layout2.jade
+
+
+block content
+  .col-lg-8.col-xlg-9.col-md-7.hoverable(style="display: inline-block; margin-left:10%; margin-top:9%"  ng-controller='New_Lesson')
+    .card
+      .card-block
+        .form-group
+          label.col-sm-12 Selecciona Curso
+          .col-sm-12
+            select.form-control.form-control-line
+              option London
+              option India
+              option Usa
+              option Canada
+              option Thailand
+          .form-group
+            label.col-sm-12 Selecciona Nivel
+            .col-sm-12
+              select.form-control.form-control-line
+                option 1
+                option 2
+                option 3
+                option 4
+                option 5
+        .form-group
+          .col-sm-12
+            button.btn.btn-success(type='submit',name='action' ng-click='submit()') Crear
+
+    #summernote
+      p Hello Summernote
+
+    a.btn-floating.btn-large.waves-effect.waves-light.blue
+        i.material-icons +
+
+
+    script(src="./javascripts/angular.min.js")
+    script(src="./javascripts/jquery-2.1.1.min.js")
+    script(src="./javascripts/controllers/new_lesson.js")
+    script.
+      $(document).ready(function() {
+      $('#summernote').summernote();
+      });

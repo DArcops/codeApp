@@ -30,6 +30,10 @@ router.get('/new_course',function(req,res,next){
   res.render('./course/new2')
 });
 
+router.get('/new_lesson',function(req,res,next){
+  res.render('./lesson/new')
+});
+
 // router.get('/dashboard/:id',function(req,res,next){
 //   res.send('que pedo '+req.params.id)
 // });
