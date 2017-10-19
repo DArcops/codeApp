@@ -27,10 +27,10 @@ block content
             .col-sm-12
               select.form-control.form-control-line(ng-model='selected_level')
                 option(ng-repeat='level in levels' value='{{level.id}}'){{level.number}}
-        //.form-group
-            //label.col-md-12 Nombre del Ejercicio
-            //.col-md-12
-              //input.form-control.form-control-line(type='text', ng-model="lesson_name")
+        .form-group
+            label.col-md-12 Nombre del Ejercicio
+            .col-md-12
+              input.form-control.form-control-line(type='text', ng-model="lesson_name")
         .form-group
             label.col-md-12 Input
             .col-md-12
