@@ -5,6 +5,12 @@ angular.module('app', [])
     if(localStorage.getItem("token") === null)
       $window.location.href = "/login"
 
+    $('#summernote').summernote({
+      height: 250,                 // set editor height
+      minHeight: null,             // set minimum height of editor
+      maxHeight: null,             // set maximum height of editor
+      focus: true                  // set focus to editable area after initializing summernote
+    });
 
     var config = {
       headers: {
@@ -20,7 +26,7 @@ angular.module('app', [])
     $scope.submit = function(){
       // var url = "http://localhost:8088/api/v1/users/login"
       // var data = {
-      //   "email" : $scope.email,
+      //   "" : $scope.email,
       //   "pass" : $scope.pass,
       // }
       // console.log(data);
