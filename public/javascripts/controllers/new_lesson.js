@@ -23,6 +23,7 @@ angular.module('app', [])
         console.log(response.data);
     });
 
+  
     $scope.submit = function(){
       // var url = "http://localhost:8088/api/v1/users/login"
       // var data = {
@@ -44,6 +45,7 @@ angular.module('app', [])
       //         });
       console.log($scope.selectedCourse)
       console.log($('#summernote').summernote('code'));
+
     }
 
   });
