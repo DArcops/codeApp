@@ -11,7 +11,7 @@ html(lang='en' ng-app="app")
     // Favicon icon
     link(rel='icon', type='image/png', sizes='16x16', href='./images/favicon.png')
     link(href='http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css', rel='stylesheet')
-    
+
     title
       | Material Pro Admin Template - The Most Complete & Trusted Bootstrap 4 Admin Template
     // Bootstrap Core CSS
@@ -162,30 +162,32 @@ html(lang='en' ng-app="app")
       // ==============================================================
       .page-wrapper
 
-        block content
 
         // ==============================================================
         // Container fluid
         // ==============================================================
-        //.container-fluid
+        .container-fluid
           // ==============================================================
           // Bread crumb and right sidebar toggle
           // ==============================================================
-          //.row.page-titles
-            //.col-md-5.col-8.align-self-center
-              //h3.text-themecolor Dashboard
-              //ol.breadcrumb
-                //li.breadcrumb-item
-                  //a(href='javascript:void(0)') Home
-                //li.breadcrumb-item.active Dashboard
-            //.col-md-7.col-4.align-self-center
-              //a.btn.waves-effect.waves-light.btn-danger.pull-right.hidden-sm-down(href='https://wrappixel.com/templates/materialpro/')  Upgrade to Pro
+          .row.page-titles
+            .col-md-5.col-8.align-self-center
+              h3.text-themecolor Dashboard
+              ol.breadcrumb
+                li.breadcrumb-item
+                  a(href='javascript:void(0)') Home
+                li.breadcrumb-item.active Dashboard
+            .col-md-7.col-4.align-self-center
           // ==============================================================
           // End Bread crumb and right sidebar toggle
           // ==============================================================
           // ==============================================================
           // Start Page Content
           // ==============================================================
+
+
+          block content
+
           // Row
           .row
             // Column
