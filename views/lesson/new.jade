@@ -10,17 +10,13 @@ block content
         .form-group
           label.col-sm-12 Selecciona Curso
           .col-sm-12
-            select.form-control.form-control-line(ng-model='selectedCourse')
+            select.form-control.form-control-line(ng-model='selectedCourse', ng-change='change()')
               option(ng-repeat='course in courses' value='{{course.id}}'){{course.name}}
-          .form-group
+        .form-group
             label.col-sm-12 Selecciona Nivel
             .col-sm-12
               select.form-control.form-control-line
-                option 1
-                option 2
-                option 3
-                option 4
-                option 5
+                option(ng-repeat='level in levels' value='{{level.id}}'){{level.number}}
           .form-group
             label.col-md-12 Nombre de la Lección
             .col-md-12
