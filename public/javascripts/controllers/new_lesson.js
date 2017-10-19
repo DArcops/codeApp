@@ -6,7 +6,7 @@ angular.module('app', [])
       $window.location.href = "/login"
 
     $('#summernote').summernote({
-      height: 250,                 // set editor height
+      height: 200,                 // set editor height
       minHeight: null,             // set minimum height of editor
       maxHeight: null,             // set maximum height of editor
       focus: true                  // set focus to editable area after initializing summernote
@@ -34,27 +34,30 @@ angular.module('app', [])
 
 
     $scope.submit = function(){
-      // var url = "http://localhost:8088/api/v1/users/login"
-      // var data = {
-      //   "" : $scope.email,
-      //   "pass" : $scope.pass,
-      // }
-      // console.log(data);
-      // var config = {};
-      //
-      // $http.post(url, data, config)
-      //         .success(function (data, status, headers, config) {
-      //           console.log(data)
-      //
-      //           localStorage.setItem("token",data.token)
-      //           $window.location.href = "/dashboard/courses"
-      //         })
-      //         .error(function (data, status, header, config) {
-      //           console.log(status)
-      //         });
-      console.log($scope.selectedCourse)
-      console.log($('#summernote').summernote('code'));
+      console.log("kakakakakaaka");
+       var url = "http://localhost:8088/api/v1/lessons/new"
+      var data = {
+        "name" : $scope.lesson_name,
+        "course_id" : parseInt($scope.selectedCourse),
+        "level_id": parseInt($scope.selected_level),
+        "code": $('#summernote').summernote('code')
+      }
+      console.log(data);
 
+      var config = {
+        headers: {
+          'Authorization': localStorage.getItem("token")
+        }
+      };
+
+      $http.post(url, data, config)
+              .success(function (data, status, headers, config) {
+                console.log("LECCION CREADA")
+              })
+              .error(function (data, status, header, config) {
+                console.log("UBO ERROR")
+              });
     }
+
 
   });
