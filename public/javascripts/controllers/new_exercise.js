@@ -1,6 +1,6 @@
 
 angular.module('app', [])
-  .controller('New_Lesson',  function($scope, $http, $window) {
+  .controller('New_Exercise',  function($scope, $http, $window) {
 
     if(localStorage.getItem("token") === null)
       $window.location.href = "/login"
@@ -15,25 +15,33 @@ angular.module('app', [])
     });
 
 
-    // var config = {
-    //   headers: {
-    //       'Authorization': localStorage.getItem("token")
-    //   }
-    // };
+    var config = {
+      headers: {
+          'Authorization': localStorage.getItem("token")
+      }
+    };
+
+    $http.get("http://localhost:8088/api/v1/courses/",config)
+      .then(function(response) {
+        $scope.courses = response.data;
+        console.log(response.data);
+    });
     //
-    // $http.get("http://localhost:8088/api/v1/courses/",config)
-    //   .then(function(response) {
-    //     $scope.courses = response.data;
-    //     console.log(response.data);
-    // });
-    //
-    // $scope.change = function() {
-    //   $http.get("http://localhost:8088/api/v1/levels?course_id="+$scope.selectedCourse,config)
-    //     .then(function(response) {
-    //       $scope.levels = response.data;
-    //       console.log(response.data);
-    //   });
-    // };
+    $scope.change = function() {
+      $http.get("http://localhost:8088/api/v1/levels?course_id="+$scope.selectedCourse,config)
+        .then(function(response) {
+          $scope.levels = response.data;
+          console.log(response.data);
+      });
+    };
+
+    $scope.changeLevel = function() {
+      $http.get("http://localhost:8088/api/v1/lessons?level_id="+$scope.selected_level,config)
+        .then(function(res) {
+          $scope.lecciones = res.data;
+          console.log(res.data);
+      });
+    };
     //
     //
     // $scope.submit = function(){
