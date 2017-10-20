@@ -25,7 +25,7 @@ block content
         .form-group
             label.col-sm-12 Selecciona Lección
             .col-sm-12
-              select.form-control.form-control-line
+              select.form-control.form-control-line(ng-model='leccionSeleccionada')
                 option(ng-repeat='leccion in lecciones' value='{{leccion.id}}'){{leccion.name}}
         .form-group
             label.col-md-12 Nombre del Ejercicio
