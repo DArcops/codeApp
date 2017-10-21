@@ -43,32 +43,35 @@ angular.module('app', [])
       });
     };
     //
-    //
-    // $scope.submit = function(){
-    //   console.log("kakakakakaaka");
-    //    var url = "http://localhost:8088/api/v1/lessons/new"
-    //   var data = {
-    //     "name" : $scope.lesson_name,
-    //     "course_id" : parseInt($scope.selectedCourse),
-    //     "level_id": parseInt($scope.selected_level),
-    //     "code": $('#summernote').summernote('code')
-    //   }
-    //   console.log(data);
-    //
-    //   var config = {
-    //     headers: {
-    //       'Authorization': localStorage.getItem("token")
-    //     }
-    //   };
-    //
-    //   $http.post(url, data, config)
-    //           .success(function (data, status, headers, config) {
-    //             console.log("LECCION CREADA")
-    //           })
-    //           .error(function (data, status, header, config) {
-    //             console.log("UBO ERROR")
-    //           });
-    // }
-    //
+
+    $scope.submit = function(){
+      console.log("kakakakakaaka");
+       var url = "http://localhost:8088/api/v1/exercises/new"
+      var data = {
+        "name" : $scope.exercise_name,
+        "course_id" : parseInt($scope.selectedCourse),
+        "level_id": parseInt($scope.selected_level),
+        "lesson_id": parseInt($scope.leccionSeleccionada),
+        "input": $scope.dataInput,
+        "output": $scope.dataOutput,
+        "code": $('#summernote').summernote('code')
+      }
+      console.log(data);
+
+      var config = {
+        headers: {
+          'Authorization': localStorage.getItem("token")
+        }
+      };
+
+      $http.post(url, data, config)
+              .success(function (data, status, headers, config) {
+                console.log("EJERCICIO CREADO")
+              })
+              .error(function (data, status, header, config) {
+                console.log("UBO ERROR")
+              });
+    }
+
 
   });
