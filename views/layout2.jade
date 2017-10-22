@@ -104,17 +104,13 @@ html(lang='en' ng-app="app")
                           img(src='./images/1.png', alt='user')
                         .u-text
                           h4 {{userName}}
-                          p.text-muted varun@gmail.com
-                          a.btn.btn-rounded.btn-danger.btn-sm(href='profile.html') View Profile
+                          p.text-muted {{userEmail}}
+                          a.btn.btn-rounded.btn-danger.btn-sm(href='profile.html') Ver Perfil
                     li.divider(role='separator')
                     li
                       a(href='#')
                         i.ti-user
-                        |  My Profile
-                    li
-                      a(href='#')
-                        i.ti-wallet
-                        |  My Balance
+                        |  Mi Perfil
                     li
                       a(href='#')
                         i.ti-email
@@ -123,7 +119,7 @@ html(lang='en' ng-app="app")
                     li
                       a(href='#')
                         i.ti-settings
-                        |  Account Setting
+                        |  Configuración de cuenta
                     li.divider(role='separator')
                     li
                       a(href='#')

@@ -31,5 +31,5 @@ var app = angular.module('app', [])
 
 app.controller('layout_user', function($scope, $http, $window) {
       $scope.userName = localStorage.getItem("user_name");
-
+      $scope.userEmail = localStorage.getItem("user_email");
   });
