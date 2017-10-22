@@ -19,6 +19,8 @@ var app = angular.module('app', [])
       });
   });
 
+////////////////////CONTROLLER FOR LAYOUT/////////////////////
+
   app.controller('layout', function($scope, $http, $window) {
     if(localStorage.getItem("token") === null)
     $window.location.href = "/login"

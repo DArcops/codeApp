@@ -1,5 +1,5 @@
-angular.module('app', [])
-  .controller('New_Course',  function($scope, $http, $window) {
+var app = angular.module('app', [])
+  app.controller('New_Course',  function($scope, $http, $window) {
 
     if(localStorage.getItem("token") === null)
       $window.location.href = "/login"
@@ -8,7 +8,8 @@ angular.module('app', [])
       var url = "http://localhost:8088/api/v1/courses/new"
       var data = {
         "name" : $scope.course_name,
-        "description" : $scope.course_description,
+        "short_description": $scope.short_description,
+        "large_description" : $scope.course_description,
       }
       console.log(data);
       var config = {
@@ -29,3 +30,20 @@ angular.module('app', [])
     }
 
   });
+
+  ///////////////////CONTROLLER FOR LAYOUT/////////////////////
+
+    app.controller('layout', function($scope, $http, $window) {
+      if(localStorage.getItem("token") === null)
+      $window.location.href = "/login"
+
+      $scope.logout = function(){
+      localStorage.clear();
+      $window.location.href = '/login'
+      }
+      });
+
+  app.controller('layout_user', function($scope, $http, $window) {
+        $scope.userName = localStorage.getItem("user_name");
+        $scope.userEmail = localStorage.getItem("user_email");
+    });

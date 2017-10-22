@@ -10,13 +10,13 @@ block content
             .col-md-12
               input.form-control.form-control-line(type='text', ng-model="course_name")
         .form-group
-          label.col-md-12 Descripcion del curso
+          label.col-md-12 Descripción Corta
+          .col-md-12
+            input.form-control.form-control-line(type='text', ng-model="short_description")
+        .form-group
+          label.col-md-12 Descripción Larga
           .col-md-12
             textarea.form-control.form-control-line(rows='5', ng-model="course_description")
-        .form-group
-          label.col-md-12 imagen (110 x 230)
-          .col-md-12
-            input.form-control.form-control-line(type='file')
         .form-group
           .col-sm-12
             button.btn.btn-success(type='submit',name='action' ng-click='submit()') Crear
