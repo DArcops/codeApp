@@ -1,6 +1,6 @@
 
-angular.module('app', [])
-  .controller('List_Courses',  function($scope, $http, $window) {
+var app = angular.module('app', [])
+  app.controller('List_Courses',  function($scope, $http, $window) {
 
     console.log("listando...")
     if(localStorage.getItem("token") === null)
@@ -17,4 +17,19 @@ angular.module('app', [])
           $scope.courses = response.data;
           console.log(response.data);
       });
+  });
+
+  app.controller('layout', function($scope, $http, $window) {
+    if(localStorage.getItem("token") === null)
+    $window.location.href = "/login"
+
+    $scope.logout = function(){
+    localStorage.clear();
+    $window.location.href = '/login'
+    }
+    });
+
+app.controller('layout_user', function($scope, $http, $window) {
+      $scope.userName = localStorage.getItem("user_name");
+
   });

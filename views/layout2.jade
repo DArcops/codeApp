@@ -88,14 +88,48 @@ html(lang='en' ng-app="app")
             // ==============================================================
             // User profile and search
             // ==============================================================
-            ul.navbar-nav.my-lg-0
+            ul.navbar-nav.my-lg-0(ng-controller='layout_user')
               // ==============================================================
               // Profile
               // ==============================================================
               li.nav-item.dropdown
                 a.nav-link.dropdown-toggle.text-muted.waves-effect.waves-dark(href='', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                  img.profile-pic.m-r-10(src='./images/1.jpg', alt='user')
-                  | Markarn Doe
+                  img.profile-pic.m-r-10(src='./images/1.png', alt='user')
+                  | {{userName}}
+                .dropdown-menu.dropdown-menu-right.scale-up.show
+                  ul.dropdown-user
+                    li
+                      .dw-user-box
+                        .u-img
+                          img(src='./images/1.png', alt='user')
+                        .u-text
+                          h4 {{userName}}
+                          p.text-muted varun@gmail.com
+                          a.btn.btn-rounded.btn-danger.btn-sm(href='profile.html') View Profile
+                    li.divider(role='separator')
+                    li
+                      a(href='#')
+                        i.ti-user
+                        |  My Profile
+                    li
+                      a(href='#')
+                        i.ti-wallet
+                        |  My Balance
+                    li
+                      a(href='#')
+                        i.ti-email
+                        |  Inbox
+                    li.divider(role='separator')
+                    li
+                      a(href='#')
+                        i.ti-settings
+                        |  Account Setting
+                    li.divider(role='separator')
+                    li
+                      a(href='#')
+                        i.fa.fa-power-off
+                        |  Logout
+
       // ==============================================================
       // End Topbar header
       // ==============================================================
@@ -141,7 +175,7 @@ html(lang='en' ng-app="app")
           // End Sidebar navigation
         // End Sidebar scroll
         // Bottom points
-        .sidebar-footer
+        .sidebar-footer(ng-controller='layout')
           // item
           a.link(href='', data-toggle='tooltip', title='Settings')
             i.ti-settings
@@ -149,7 +183,7 @@ html(lang='en' ng-app="app")
           a.link(href='', data-toggle='tooltip', title='Email')
             i.mdi.mdi-gmail
           // item
-          a.link(href='', data-toggle='tooltip', title='Logout')
+          a.link( data-toggle='tooltip', title='Logout', ng-click='logout()')
             i.mdi.mdi-power
         // End Bottom points
 

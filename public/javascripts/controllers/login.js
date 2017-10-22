@@ -2,6 +2,7 @@
 angular.module('app', [])
   .controller('Login',  function($scope, $http, $window) {
     console.log("visas");
+    localStorage.clear()
     $scope.submit = function(){
       var url = "http://localhost:8088/api/v1/users/login"
       var data = {
@@ -16,7 +17,8 @@ angular.module('app', [])
                 console.log(data)
 
                 localStorage.setItem("token",data.token)
-                $window.location.href = "/dashboard/courses"
+                localStorage.setItem("user_name",data.user_name)
+                $window.location.href = "/courses"
               })
               .error(function (data, status, header, config) {
                 console.log(status)
