@@ -1,3 +1,19 @@
 extends ../layout2.jade
 
-h1 que pedo
+block content
+  .row(ng-controller='List_Courses')
+    .col-lg-4.col-xlg-3.col-md-5(ng-repeat='course in courses')
+      .card
+        img.card-img-top(src='../images/profile-bg.png', alt='Card image cap')
+        .card-block.little-profile.text-center
+          .pro-img
+            img(src='../images/code.png', alt='user')
+          h3.m-b-0 {{course.name}}
+          p {{course.description}}
+          a.m-t-10.waves-effect.waves-dark.btn.btn-primary.btn-md.btn-rounded(href='javascript:void(0)') Follow
+
+
+
+      script(src="./javascripts/angular.min.js")
+      script(src="./javascripts/controllers/list_course.js")
+      script(src="./javascripts/jquery-2.1.1.min.js")

@@ -4,6 +4,7 @@ var bodyParser   = require('body-parser');
 var mongoose     = require ('mongoose');
 var User         = require('../models/user');
 var router       = express.Router();
+var path = require('path')
 
 
 var app = express();
@@ -22,8 +23,8 @@ router.get('/bfs_tutorial/2',function(req,res){
   res.render('tutorial/bfs2');
 });
 
-router.get('/dashboard/p',function(req,res,next){
-  res.render('./login/loco')
+router.get('/courses',function(req,res,next){
+  res.render('course/all')
 });
 
 router.get('/new_course',function(req,res,next){
