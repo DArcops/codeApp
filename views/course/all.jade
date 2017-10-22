@@ -10,7 +10,7 @@ block content
             img(src='../images/code.png', alt='user')
           h3.m-b-0 {{course.name}}
           p {{course.short_description}}
-          button.btn.waves-effect.waves-light.btn-rounded.btn-primary(type='button') Cursar
+          button.btn.waves-effect.waves-light.btn-rounded.btn-primary(type='button' data-toggle="modal" data-target="#cu{{$index}}") Cursar
           button.btn.waves-effect.waves-light.btn-rounded.btn-danger(style="margin-left:15%;" type='button' data-toggle="modal" data-target="#ex{{$index}}") Info
           .modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true', style='display: none;' id="ex{{$index}}")
             .modal-dialog.modal-lg
@@ -19,11 +19,24 @@ block content
                   h4#myLargeModalLabel.modal-title Información del Curso
                   button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
                 .modal-body
-                  h4 ¿Qué podras aprender?
+                  h4 ¿Qué podrás aprender?
                   p {{course.large_description}}
                 .modal-footer
                   button.btn.btn-danger.waves-effect.text-left(type='button', data-dismiss='modal') Close
-
+          .modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true', style='display: none;' id="cu{{$index}}")
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  h4#myLargeModalLabel.modal-title Inscribirse al curso: {{course.name}}
+                  button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+                .modal-body
+                  form(lpformnum='3', _lpchecked='1')
+                    .form-group
+                       label.control-label(for='recipient-name') Ingresa tu contraseña para continuar
+                       input#recipient-name1.form-control(type='password' ng-model="pasale")
+                .modal-footer
+                  button.btn.btn-success(type='button' ng-click='suscribe(pasale,course.id)') Confirmar
+                  button.btn.btn-danger.waves-effect.text-left(type='button', data-dismiss='modal') Cerrar
 
 
 

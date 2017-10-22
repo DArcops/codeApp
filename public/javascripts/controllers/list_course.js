@@ -17,6 +17,24 @@ var app = angular.module('app', [])
           $scope.courses = response.data;
           console.log(response.data);
       });
+
+      $scope.suscribe = function(pass,course_id){
+        console.log(pass)
+        console.log(course_id);
+
+        var data = {
+          "course_id": course_id,
+          "user_pass" : pass,
+        };
+
+        $http.post("http://localhost:8088/api/v1/courses/suscribe", data, config)
+                .success(function (data, status, headers, config) {
+                  console.log("Ya se suscribio")
+                })
+                .error(function (data, status, header, config) {
+                  console.log("mal",data);
+                });
+      }
   });
 
 ////////////////////CONTROLLER FOR LAYOUT/////////////////////
