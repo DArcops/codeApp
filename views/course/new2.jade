@@ -1,13 +1,14 @@
 extends ../layout2.jade
 
 block content
+
   .col-lg-8.col-xlg-9.col-md-7.hoverable(style="display: inline-block; margin-left:10%; margin-top:4%"  ng-controller='New_Course')
     .card
       .card-block
         form.form-horizontal.form-material
           .form-group
             label.col-md-12 Nombre del Curso
-            .col-md-12
+            .col-md-12  
               input.form-control.form-control-line(type='text', ng-model="course_name")
         .form-group
           label.col-md-12 Descripción Corta
@@ -21,6 +22,7 @@ block content
           .col-sm-12
             button.btn.btn-success(type='submit',name='action' ng-click='submit()') Crear
 
-        script(src="./javascripts/angular.min.js")
-        script(src="./javascripts/controllers/new_course.js")
-        script(src="./javascripts/jquery-2.1.1.min.js")
+
+  script(src="./javascripts/angular.min.js")
+  script(src="./javascripts/controllers/new_course.js")
+  script(src="./javascripts/jquery-2.1.1.min.js")
