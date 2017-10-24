@@ -27,9 +27,18 @@ router.get('/courses',function(req,res,next){
   res.render('course/all')
 });
 
+router.get('/courses_one',function(req,res,next){
+  res.render('course/one')
+});
+
 router.get('/new_course',function(req,res,next){
   res.render('./course/new2')
 });
+
+router.get('/lesson',function(req,res,next){
+  res.render('./lesson/list')
+});
+
 
 router.get('/new_exercise',function(req,res,next){
   res.render('./exercise/new')

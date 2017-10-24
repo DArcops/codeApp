@@ -73,6 +73,9 @@ html(lang='en' ng-app="app")
             ul.navbar-nav.mr-auto.mt-md-0
               // This is
               li.nav-item
+                a.nav-link.sidebartoggler.hidden-sm-down.text-muted.waves-effect.waves-dark(href='javascript:void(0)')
+                  i.ti-menu
+              li.nav-item
                 a.nav-link.nav-toggler.hidden-md-up.text-muted.waves-effect.waves-dark(href='javascript:void(0)')
                   i.mdi.mdi-menu
               // ==============================================================
@@ -132,9 +135,9 @@ html(lang='en' ng-app="app")
       // ==============================================================
       // Left Sidebar - style you can find in sidebar.scss
       // ==============================================================
-      aside.left-sidebar
+      aside.left-sidebar(style="overflow:visible")
         // Sidebar scroll
-        .scroll-sidebar
+        .scroll-sidebar(style="overflow-x: visible; overflow-y: hidden; width: auto; height: 100%;")
           // Sidebar navigation
           nav.sidebar-nav
             ul#sidebarnav

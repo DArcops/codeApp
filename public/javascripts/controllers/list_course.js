@@ -41,7 +41,6 @@ var app = angular.module('app', [])
                 .error(function (data, status, header, config) {
                   console.log("mal",status);
                   if(parseInt(status) == parseInt(409)){
-                    console.log("kkkkkaaaaaaa")
                     swal({
                       type: 'warning',
                       title: 'Parece que ya estas inscrito :/',
