@@ -30,9 +30,31 @@ var app = angular.module('app', [])
         $http.post("http://localhost:8088/api/v1/courses/suscribe", data, config)
                 .success(function (data, status, headers, config) {
                   console.log("Ya se suscribio")
+                  $scope.pasale = ""
+                  swal({
+                    type: 'success',
+                    title: 'Te has inscrito correctamente!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
                 })
                 .error(function (data, status, header, config) {
-                  console.log("mal",data);
+                  console.log("mal",status);
+                  if(parseInt(status) == parseInt(409)){
+                    console.log("kkkkkaaaaaaa")
+                    swal({
+                      type: 'warning',
+                      title: 'Parece que ya estas inscrito :/',
+                      showConfirmButton: false,
+                      timer: 2500
+                    })
+                  }else {
+                    swal({
+                      type: 'error',
+                      title: 'Hubo un problema',
+                      timer: 1500
+                    })
+                  }
                 });
       }
   });
