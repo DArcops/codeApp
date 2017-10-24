@@ -1,5 +1,5 @@
+var app = angular.module('app', [])
 
-angular.module('app', [])
   .controller('New_Exercise',  function($scope, $http, $window) {
 
     if(localStorage.getItem("token") === null)
@@ -67,11 +67,39 @@ angular.module('app', [])
       $http.post(url, data, config)
               .success(function (data, status, headers, config) {
                 console.log("EJERCICIO CREADO")
+                swal({
+                  type: 'success',
+                  title: 'Ejercicio Creado',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
               })
               .error(function (data, status, header, config) {
                 console.log("UBO ERROR")
+                swal({
+                  type: 'error',
+                  title: 'Hubo un problema',
+                  timer: 1500
+                })
               });
     }
 
 
   });
+
+  ///////////////////CONTROLLER FOR LAYOUT/////////////////////
+
+    app.controller('layout', function($scope, $http, $window) {
+      if(localStorage.getItem("token") === null)
+      $window.location.href = "/login"
+
+      $scope.logout = function(){
+      localStorage.clear();
+      $window.location.href = '/login'
+      }
+      });
+
+  app.controller('layout_user', function($scope, $http, $window) {
+        $scope.userName = localStorage.getItem("user_name");
+        $scope.userEmail = localStorage.getItem("user_email");
+    });
