@@ -21,14 +21,16 @@ block content
             label.col-md-12 Nombre de la Lección
             .col-md-12
               input.form-control.form-control-line(type='text', ng-model="lesson_name")
-
+          .form-group
+            label.col-md-12 Descripción
+            .col-md-12
+              textarea.form-control.form-control-line(rows='5', ng-model="lesson_description")
           .form-group(ng-controller='New_Lesson')
             .col-sm-12
               button.btn.btn-success(type='submit',name='action' ng-click='submit()') Crear
 
     #summernote
       p Escribe la lección
-
 
 
     script(src="./javascripts/angular.min.js")

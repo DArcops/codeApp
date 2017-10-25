@@ -6,8 +6,8 @@ var app = angular.module('app', [])
       $window.location.href = "/login"
 
     $('#summernote').summernote({
-      height: 200,                 // set editor height
-      minHeight: null,             // set minimum height of editor
+      height: 800,                 // set editor height
+      minHeight: 500,             // set minimum height of editor
       maxHeight: null,             // set maximum height of editor
       focus: true                  // set focus to editable area after initializing summernote
     });
@@ -40,7 +40,8 @@ var app = angular.module('app', [])
         "name" : $scope.lesson_name,
         "course_id" : parseInt($scope.selectedCourse),
         "level_id": parseInt($scope.selected_level),
-        "code": $('#summernote').summernote('code')
+        "code": $('#summernote').summernote('code'),
+        "description": $scope.lesson_description
       }
       console.log(data);
 
