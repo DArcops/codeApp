@@ -1,7 +1,7 @@
 extends ../layout2.jade
 
 block content
-  .col-lg-8.col-xlg-9.col-md-8
+  .col-lg-8.col-xlg-9.col-md-8(ng-controller='List_Lessons')
     .card
       .profiletimeline
         .sl-item
@@ -21,7 +21,7 @@ block content
                 i.fa.fa-user-circle.text-blue
                 |  5 Usuarios
               button.btn.waves-effect.waves-light.btn-rounded.btn-xs.btn-info(type='button' style="margin-left:3%") Ver Lección
-        hr      
+        hr
         .sl-item
           .sl-left
             img.img-circle(src='./images/3.jpg', alt='user')
@@ -79,7 +79,7 @@ block content
 
         hr
 
-  .col-lg-4.col-xlg-3.col-md-4
+  .col-lg-4.col-xlg-3.col-md-4(ng-controller='List_Lessons')
     .card
       h4.text-themecolor.m-b-0.m-t-0(style="margin-top:8%; text-align:center") Filtrar
       .form-group(style="margin-top:8%; margin-left:10%;")
@@ -114,3 +114,6 @@ block content
 
         li.page-item
           a.page-link(href='#') Next
+
+    script(src="./javascripts/angular.min.js")
+    script(src="./javascripts/controllers/course.js")
