@@ -36,7 +36,7 @@ var app = angular.module('app', [])
     };
 
     $scope.changeLevel = function() {
-      $http.get("http://localhost:8088/api/v1/lessons?level_id="+$scope.selected_level,config)
+      $http.get("http://localhost:8088/api/v1/lessons?level_id="+$scope.selected_level+"&course_id="+$scope.selectedCourse,config)
         .then(function(res) {
           $scope.lecciones = res.data;
           console.log(res.data);

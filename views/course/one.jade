@@ -1,119 +1,60 @@
 extends ../layout2.jade
 
 block content
-  .col-lg-8.col-xlg-9.col-md-8(ng-controller='List_Lessons')
-    .card
-      .profiletimeline
-        .sl-item
-          .sl-left
-            img.img-circle(src='./images/3.jpg', alt='user')
-          .sl-right
-            div
-              a.link(href='#') John Doe
-              span.sl-date  5 minutes ago
-              p.m-t-10
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper
-            .like-comm.m-t-20
-              a.link.m-r-10(href='javascript:void(0)')
-                i.fa.fa-thumbs-up.text-blue
-                |  20 Likes
-              a.link.m-r-10(href='javascript:void(0)')
-                i.fa.fa-user-circle.text-blue
-                |  5 Usuarios
-              button.btn.waves-effect.waves-light.btn-rounded.btn-xs.btn-info(type='button' style="margin-left:3%") Ver Lección
-        hr
-        .sl-item
-          .sl-left
-            img.img-circle(src='./images/3.jpg', alt='user')
-          .sl-right
-            div
-              a.link(href='#') John Doe
-              span.sl-date  5 minutes ago
-              p.m-t-10
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper
-            .like-comm.m-t-20
-              a.link.m-r-10(href='javascript:void(0)')
-                i.fa.fa-thumbs-up.text-blue
-                |  20 Likes
-              a.link.m-r-10(href='javascript:void(0)')
-                i.fa.fa-user-circle.text-blue
-                |  5 Usuarios
-              button.btn.waves-effect.waves-light.btn-rounded.btn-xs.btn-info(type='button' style="margin-left:3%") Ver Lección
-        hr
-        .sl-item
-          .sl-left
-            img.img-circle(src='./images/3.jpg', alt='user')
-          .sl-right
-            div
-              a.link(href='#') John Doe
-              span.sl-date  5 minutes ago
-              p.m-t-10
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper
-            .like-comm.m-t-20
-              a.link.m-r-10(href='javascript:void(0)')
-                i.fa.fa-thumbs-up.text-blue
-                |  20 Likes
-              a.link.m-r-10(href='javascript:void(0)')
-                i.fa.fa-user-circle.text-blue
-                |  5 Usuarios
-              button.btn.waves-effect.waves-light.btn-rounded.btn-xs.btn-info(type='button' style="margin-left:3%") Ver Lección
-        hr
-        .sl-item
-          .sl-left
-            img.img-circle(src='./images/3.jpg', alt='user')
-          .sl-right
-            div
-              a.link(href='#') John Doe
-              span.sl-date  5 minutes ago
-              p.m-t-10
-                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper
-            .like-comm.m-t-20
-              a.link.m-r-10(href='javascript:void(0)')
-                i.fa.fa-thumbs-up.text-blue
-                |  20 Likes
-              a.link.m-r-10(href='javascript:void(0)')
-                i.fa.fa-user-circle.text-blue
-                |  5 Usuarios
-              button.btn.waves-effect.waves-light.btn-rounded.btn-xs.btn-info(type='button' style="margin-left:3%") Ver Lección
+  .row(ng-controller='List_Lessons')
+    .col-lg-8.col-xlg-9.col-md-8
+      .card
+        .profiletimeline
+          .sl-item(ng-repeat='leccion in lecciones')
+            .sl-left
+              img.img-circle(src='./images/3.jpg', alt='user')
+            .sl-right
+              div
+                a.link(href='#') {{leccion.name}}
+                span.sl-date  5 minutes ago
+                p.m-t-10
+                  | {{leccion.description}}
+              .like-comm.m-t-20
+                a.link.m-r-10(href='javascript:void(0)')
+                  i.fa.fa-thumbs-up.text-blue
+                  |  20 Likes
+                a.link.m-r-10(href='javascript:void(0)')
+                  i.fa.fa-user-circle.text-blue
+                  |  5 Usuarios
+                button.btn.waves-effect.waves-light.btn-rounded.btn-xs.btn-info(type='button' style="margin-left:3%") Ver Lección
+          hr
 
+    .col-lg-4.col-xlg-3.col-md-4
+      .card
+        h4.text-themecolor.m-b-0.m-t-0(style="margin-top:8%; text-align:center") Filtrar
+        .form-group(style="margin-top:8%; margin-left:10%;")
+          .switch
+            label Recientes
+              input(type='checkbox', checked='')
+              span.lever.switch-col-light-blue
+        .form-group(style=" margin-left:10%;")
+          .row
+            label.col-sm-2(style="margin-top:5px;")  Nivel
+            .col-sm-8
+              select.form-control.form-control-line(ng-model='selected_level' ng-change='refresh()')
+                option(ng-repeat='level in levels' value='{{level.id}}' selected="selected"){{level.number}}
+  .row
+    .col-lg-3.col-xlg-4.col-md-3(style="margin-bottom:5%;")
+      nav(aria-label='...')
+        ul.pagination
+          li.page-item.disabled
+            a.page-link(href='#', tabindex='-1') Previous
+          li.page-item
+            a.page-link(href='#') 1
+          li.page-item.active
+            a.page-link(href='#')
+              | 2
+              span.sr-only (current)
+          li.page-item
+            a.page-link(href='#') 3
 
-        hr
-
-  .col-lg-4.col-xlg-3.col-md-4(ng-controller='List_Lessons')
-    .card
-      h4.text-themecolor.m-b-0.m-t-0(style="margin-top:8%; text-align:center") Filtrar
-      .form-group(style="margin-top:8%; margin-left:10%;")
-        .switch
-          label Recientes
-            input(type='checkbox', checked='')
-            span.lever.switch-col-light-blue
-      .form-group(style=" margin-left:10%;")
-        .row
-          label.col-sm-2(style="margin-top:5px;")  Nivel
-          .col-sm-8
-            select.form-control.form-control-line(ng-model='selected_level')
-              option 1
-              option 2
-              option 3
-              option 4
-              option 5
-
-  .col-lg-3.col-xlg-4.col-md-3(style="margin-bottom:5%;")
-    nav(aria-label='...')
-      ul.pagination
-        li.page-item.disabled
-          a.page-link(href='#', tabindex='-1') Previous
-        li.page-item
-          a.page-link(href='#') 1
-        li.page-item.active
-          a.page-link(href='#')
-            | 2
-            span.sr-only (current)
-        li.page-item
-          a.page-link(href='#') 3
-
-        li.page-item
-          a.page-link(href='#') Next
+          li.page-item
+            a.page-link(href='#') Next
 
     script(src="./javascripts/angular.min.js")
-    script(src="./javascripts/controllers/course.js")
+    script(src="./javascripts/controllers/list_lessons.js")
