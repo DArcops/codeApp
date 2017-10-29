@@ -21,8 +21,8 @@ block content
                 a.link.m-r-10(href='javascript:void(0)')
                   i.fa.fa-user-circle.text-blue
                   |  5 Usuarios
-                button.btn.waves-effect.waves-light.btn-rounded.btn-xs.btn-info(type='button' style="margin-left:3%") Ver Lección
-          hr
+                button.btn.waves-effect.waves-light.btn-rounded.btn-xs.btn-info(type='button' style="margin-left:3%" ng-click='view(leccion.id)') Ver Lección
+            hr
 
     .col-lg-4.col-xlg-3.col-md-4
       .card
@@ -38,23 +38,7 @@ block content
             .col-sm-8
               select.form-control.form-control-line(ng-model='selected_level' ng-change='refresh()')
                 option(ng-repeat='level in levels' value='{{level.id}}' selected="selected"){{level.number}}
-  .row
-    .col-lg-3.col-xlg-4.col-md-3(style="margin-bottom:5%;")
-      nav(aria-label='...')
-        ul.pagination
-          li.page-item.disabled
-            a.page-link(href='#', tabindex='-1') Previous
-          li.page-item
-            a.page-link(href='#') 1
-          li.page-item.active
-            a.page-link(href='#')
-              | 2
-              span.sr-only (current)
-          li.page-item
-            a.page-link(href='#') 3
 
-          li.page-item
-            a.page-link(href='#') Next
 
     script(src="./javascripts/angular.min.js")
     script(src="./javascripts/controllers/list_lessons.js")

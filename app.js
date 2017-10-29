@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'public')));
 app.use('/courses',express.static(path.join(__dirname,'public')));
+app.use('/lessons',express.static(path.join(__dirname,'public')));
 
 
 app.use('/', routes);

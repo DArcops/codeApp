@@ -36,6 +36,11 @@ var app = angular.module('app', [])
         });
       }
 
+      $scope.view = function(lessonID){
+        console.log("JKKKK"+lessonID);
+        $window.location.href = "/lessons/"+lessonID;
+      };
+
   });
 
   ///////////////////CONTROLLER FOR LAYOUT/////////////////////
