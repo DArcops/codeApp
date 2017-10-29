@@ -11,16 +11,7 @@ block content
       h3.text-themecolor.m-b-0.m-t-0(style='margin-bottom:13%; text-align:center;') Ejercicios
       .stickyside
         #top-menu.list-group
-          a.list-group-item.active(href='#1') Title will be 1
-          a.list-group-item(href='#22') Title will be 2
-          a.list-group-item(href='#3') Title will be 3
-          a.list-group-item(href='#4') Title will be 4
-          a.list-group-item(href='#5') Title will be 5
-          a.list-group-item(href='#6') Title will be 6
-          a.list-group-item(href='#7') Title will be 7
-          a.list-group-item(href='#8') Title will be 8
-          a.list-group-item(href='#9') Title will be 9
-          a.list-group-item(href='#10') Title will be 10
+          button.list-group-item.text-themecolor(ng-repeat='exercise in exercises' ng-click='selectExercise(exercise.id)') {{$index+1+".- "+exercise.name}}
 
     script(src="./javascripts/angular.min.js")
     script(src="./javascripts/jquery-2.1.1.min.js")
