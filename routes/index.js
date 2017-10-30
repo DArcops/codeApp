@@ -48,6 +48,10 @@ router.get('/lessons/:lesson_id',function(req,res,next){
 });
 
 
+router.get('/exercises/:exercise_id',function(req,res,next){
+  res.render('./exercise/one')
+});
+
 router.get('/new_exercise',function(req,res,next){
   res.render('./exercise/new')
 });
