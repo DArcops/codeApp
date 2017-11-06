@@ -88,6 +88,36 @@ html(lang='en' ng-app="app")
                   input.form-control(type='text', placeholder='Search & enter')
                   a.srh-btn
                     i.ti-close
+              li.nav-item.dropdown.mega-dropdown.show
+                a.nav-link.dropdown-toggle.text-muted.waves-effect.waves-dark(href='', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                  i.fa.fa-plus-circle  Ejercicios
+                .dropdown-menu.scale-up-left.show
+                  ul.mega-dropdown-menu.row
+                    li.col-lg-3.col-xlg-4.m-b-30
+                      h4.m-b-20 Ejercicios
+                      // List style
+                      ul.list-style-none
+                        li
+                          a(href='javascript:void(0)')
+                            i.fa.fa-check.text-success
+                            |  You can give link
+                        li
+                          a(href='javascript:void(0)')
+                            i.fa.fa-check.text-success
+                            |  Give link
+                        li
+                          a(href='javascript:void(0)')
+                            i.fa.fa-check.text-success
+                            |  Another Give link
+                        li
+                          a(href='javascript:void(0)')
+                            i.fa.fa-check.text-success
+                            |  Forth link
+                        li
+                          a(href='javascript:void(0)')
+                            i.fa.fa-check.text-success
+                            |  Another fifth link
+
             // ==============================================================
             // User profile and search
             // ==============================================================
@@ -158,7 +188,8 @@ html(lang='en' ng-app="app")
                   i.mdi.mdi-emoticon
                   span.hide-menu Estadisticas
 
-        .sidebar-footer(ng-controller='layout')
+
+        .sidebar-footer(ng-controller='layout' style="background:#263238")
           // item
           a.link(href='', data-toggle='tooltip', title='Settings')
             i.ti-settings
@@ -177,14 +208,14 @@ html(lang='en' ng-app="app")
       // ==============================================================
       // Page wrapper
       // ==============================================================
-      .page-wrapper
+      .page-wrapper(style="background:#263238")
 
         block content
 
         // footer
         // ==============================================================
         block footer
-          footer.footer  © dialgorithm
+          footer.footer(style="background:#263238")  © dialgorithm
         // ==============================================================
         // End footer
         // ==============================================================

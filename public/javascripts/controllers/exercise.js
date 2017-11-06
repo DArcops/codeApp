@@ -6,11 +6,11 @@ var app = angular.module('app', [])
     if(localStorage.getItem("token") === null)
       $window.location.href = "/login"
 
-      $('#summernote').summernote({
-        minHeight:450,
-        focus: true                  // set focus to editable area after initializing summernote
-      });
 
+    $('#summernote').summernote({
+      height: 800,
+      focus: true                  // set focus to editable area after initializing summernote
+    });
 
   });
 
