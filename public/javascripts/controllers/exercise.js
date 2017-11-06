@@ -2,17 +2,44 @@
 var app = angular.module('app', [])
   app.controller('Exercise',  function($scope, $http, $window) {
 
-    console.log("ejercitando...")
+    console.log("ejercitando... "+editor.getValue())
     if(localStorage.getItem("token") === null)
       $window.location.href = "/login"
 
+      $scope.probar = function(){
+        console.log("testing")
+      }
 
     $('#summernote').summernote({
-      height: 800,
       focus: true                  // set focus to editable area after initializing summernote
     });
 
+
   });
+/////////////////////////////////////////////////
+app.controller('Solution',  function($scope, $http, $window) {
+
+    $scope.probar = function(){
+      var code = editor.getValue();
+
+      var url = "http://coliru.stacked-crooked.com/compile"
+      var data = {
+        "cmd" : "g++ -std=c++17 -O2 -Wall -pedantic -pthread main.cpp && ./a.out",
+        "src": code
+      }
+
+      $http.post(url, data)
+              .success(function (response) {
+                console.log("Ya se compilo "+response )
+
+              })
+              .error(function (data, status, header, config) {
+                console.log(data)
+              });
+
+    }
+
+});
 
 ////////////////////CONTROLLER FOR LAYOUT/////////////////////
 

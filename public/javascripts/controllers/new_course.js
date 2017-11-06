@@ -4,9 +4,6 @@ var app = angular.module('app', [])
     if(localStorage.getItem("token") === null)
       $window.location.href = "/login"
 
-
-
-
     $scope.submit = function(){
       var url = "http://localhost:8088/api/v1/courses/new"
       var data = {

@@ -27,15 +27,15 @@ var app = angular.module('app', [])
         $('#summernote').summernote('destroy');
       });
 
-      $http.get("http://localhost:8088/api/v1/exercises?lesson_id="+lesson_id,config)
+      $http.get("http://localhost:8088/api/v1/exercises/"+lesson_id,config)
       .then(function(response) {
-        $scope.exercises = response.data;
-        console.log($scope.exercises);
+        lesson = response.data;
+        $('#summernote').summernote('code',lesson.code);
+        $('#summernote').summernote('destroy');
       });
 
-      $scope.selectExercise = function(exercise_id) {
-        console.log("click al "+exercise_id)
-      }
+
+
 
   });
 

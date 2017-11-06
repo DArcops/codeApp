@@ -8,18 +8,14 @@ block content
 
     .col-lg-8.col-xlg-8.col-md-8(style="padding-left:0px;")
       #editor(style="top: 0;right: 0;bottom: 0;left: 0; height:70%;")
-        | #include &lt;bits/stdc++.h&gt;
-        | using namespace std;
-        | int main(){
-        |    return 0;
-        | }
+
       .shell-wrap(style="height:30%")
         ul.shell-body(style="height:100%;")
           li Output...
           li
-  .row
+  .row(ng-controller="Solution")
     .col-lg-4.col-xlg-4.col-md-4(style="padding-right:0px;height:100%;")
-      button.btn-success.btn-lg(style="cursor:pointer;margin-left:22%;margin-top:10px;margin-bottom:10px;") Probar solución
+      button.btn-success.btn-lg(style="cursor:pointer;margin-left:22%;margin-top:10px;margin-bottom:10px;", ng-click='probar()') Probar solución
 
     .col-lg-8.col-xlg-8.col-md-8(style="padding-left:0px;")
       .button-group
@@ -34,6 +30,12 @@ block content
       var editor = ace.edit("editor");
       editor.setTheme("ace/theme/dracula");
       editor.getSession().setMode("ace/mode/c_cpp");
+      var baseCode = "#include <bits/stdc++.h> \n \n"
+      baseCode += "using namespace std;\n\n"
+      baseCode += "int main(){ \n"
+      baseCode += "   return 0;\n";
+      baseCode += "}"
+      editor.setValue(baseCode);
 
     script.
       $(document).ready(function() {
