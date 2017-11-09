@@ -37,7 +37,7 @@ var app = angular.module('app', [])
                     showConfirmButton: false,
                     timer: 1500
                   })
-                  $window.location.href = "/courses/"+course_id;
+                  $window.location.href = "/courses/"+course_id+"/lessons";
                 })
                 .error(function (data, status, header, config) {
                   console.log("mal",status);

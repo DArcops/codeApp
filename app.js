@@ -23,6 +23,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'public')));
 app.use('/courses',express.static(path.join(__dirname,'public')));
+app.use('/courses/:course_id',express.static(path.join(__dirname,'public')));
+app.use('/courses/:course_id/lessons',express.static(path.join(__dirname,'public')));
+
+
+//////////OOOOLLLLLDDDD//////////////////////////////
 app.use('/lessons',express.static(path.join(__dirname,'public')));
 app.use('/exercises',express.static(path.join(__dirname,'public')));
 
