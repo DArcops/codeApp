@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use('/courses',express.static(path.join(__dirname,'public')));
 app.use('/courses/:course_id',express.static(path.join(__dirname,'public')));
 app.use('/courses/:course_id/lessons',express.static(path.join(__dirname,'public')));
+app.use('/courses/:course_id/lessons/:lesson_id/exercises',express.static(path.join(__dirname,'public')));
 
 
 //////////OOOOLLLLLDDDD//////////////////////////////

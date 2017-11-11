@@ -3,11 +3,11 @@ extends ../exercise_layout.jade
 block content
   .row(style="margin-rigth:5px;position:relative;height:100%;" ng-controller='Exercise')
     .col-lg-4.col-xlg-4.col-md-4(style="padding-right:0px;height:100%;")
-      .card(style="margin-bottom:0px;")
-        #summernote(style="background:#263238")
+      .card
+        #summernote(style="margin-left:30px;margin-top:30px;margin-right:30px;margin-bottom:30px;")
 
     .col-lg-8.col-xlg-8.col-md-8(style="padding-left:0px;")
-      #editor(style="top: 0;right: 0;bottom: 0;left: 0; height:70%;")
+      #editor(style="top: 0;right: 0;bottom: 0;left: 0; height:65%;")
 
       .shell-wrap(style="height:30%")
         ul.shell-body(style="height:100%;")
