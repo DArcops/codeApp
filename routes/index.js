@@ -15,9 +15,18 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/courses/:course_id', function(req, res, next) {
+router.get('/courses/:course_id/lessons', function(req, res, next) {
   res.render('course/one');
 });
+
+router.get('/courses/:course_id/lessons/:lesson_id',function(req,res,next){
+  res.render('./lesson/one')
+});
+
+router.get('/courses/:course_id/lessons/:lesson_id/exercises/:exercise_id',function(req,res,next){
+  res.render('./exercise/one')
+});
+///////////////////////////////////////////////////////NEWWWWW!!!!!!!/////////////////////
 
 router.get('/loco', function(req, res, next) {
   res.render('login/loco')

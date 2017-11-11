@@ -4,6 +4,15 @@ var app = angular.module('app', [])
     if(localStorage.getItem("token") === null)
       $window.location.href = "/login"
 
+      /////////////////GET ID's ////////////////////////
+      var location = $window.location.pathname;
+
+      var course_id = "";
+      for(var i = 9; ; i++)
+        if(location[i] == "/") break;
+        else course_id += location[i];
+      ///////////////////////////////////////////////////
+
       $('#summernote').summernote({
         focus: true                  // set focus to editable area after initializing summernote
       });
@@ -27,14 +36,14 @@ var app = angular.module('app', [])
         $('#summernote').summernote('destroy');
       });
 
-      $http.get("http://localhost:8088/api/v1/exercises/"+lesson_id,config)
+      $http.get("http://localhost:8088/api/v1/exercises?course_id="+course_id+"&lesson_id="+lesson_id,config)
       .then(function(response) {
-        lesson = response.data;
-        $('#summernote').summernote('code',lesson.code);
-        $('#summernote').summernote('destroy');
+        $scope.exercises = response.data;
       });
 
-
+      $scope.selectExercise = function(exercise_id) {
+        $window.location.href = "/courses/"+course_id+"/lessons/"+lesson_id+"/exercises/"+exercise_id;
+      }
 
 
   });

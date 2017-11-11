@@ -14,8 +14,11 @@ var app = angular.module('app', [])
 
       var location = $window.location.pathname;
       var lastSlash = location.lastIndexOf("/")
-      var course_id = location.substring(lastSlash+1,location.length)
-      var level_id;
+      var course_id = "";
+      for(var i = 9; ; i++)
+        if(location[i] == "/") break;
+        else course_id += location[i];
+
 
       $http.get("http://localhost:8088/api/v1/levels?course_id="+course_id,config)
       .then(function(response) {
@@ -38,7 +41,7 @@ var app = angular.module('app', [])
 
       $scope.view = function(lessonID){
         console.log("JKKKK"+lessonID);
-        $window.location.href = "/lessons/"+lessonID;
+        $window.location.href = "/courses/"+course_id+"/lessons/"+lessonID;
       };
 
   });
