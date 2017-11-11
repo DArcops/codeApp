@@ -7,7 +7,11 @@ var app = angular.module('app', [])
       $window.location.href = "/login"
 
       $('#summernote').summernote({
-        focus: true                  // set focus to editable area after initializing summernote
+        focus: true,                 // set focus to editable area after initializing summernote
+      });
+
+      editor.setOptions({
+        fontSize: "13pt"
       });
 
       var location = $window.location.pathname
