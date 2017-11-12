@@ -7,18 +7,21 @@ block content
         #summernote(style="margin-left:30px;margin-top:30px;margin-right:30px;margin-bottom:30px;")
 
     .col-lg-8.col-xlg-8.col-md-8(style="padding-left:0px;")
-      #editor(style="top: 0;right: 0;bottom: 0;left: 0; height:65%;")
+      #editor(style="top: 0;right: 0;bottom: 0;left: 0; height:68%;")
 
       .shell-wrap(style="height:30%")
         ul.shell-body(style="height:100%;")
-          li {{output}}
+          li(ng-repeat="out in output"){{out}}
   .row
     .col-lg-4.col-xlg-4.col-md-4(style="padding-right:0px;height:100%;")
-      button.btn-success.btn-lg(style="cursor:pointer;margin-left:22%;margin-top:10px;margin-bottom:10px;", ng-click='probar()') Probar solución
+      button.btn-success.btn-lg(style="cursor:pointer;margin-left:22%;margin-top:5px;margin-bottom:10px;", ng-click='probar()') Probar solución
+      i.fa.fa-spinner.fa-spin.text-success(style='font-size:30px;margin-left:20px;' ng-show="loadingTest")
 
     .col-lg-8.col-xlg-8.col-md-8(style="padding-left:0px;")
       .button-group
-        button.btn-success.btn-lg(style="cursor:pointer;margin-left:30%;margin-top:10px;margin-bottom:10px;padding-left:10%;padding-right:10%") Enviar solución
+        button.btn-success.btn-lg(style="cursor:pointer;margin-left:30%;margin-top:5px;margin-bottom:10px;padding-left:10%;padding-right:10%") Enviar solución
+        i.fa.fa-spinner.fa-spin.text-success(style='font-size:30px;margin-left:20px;' ng-show="loadingSolution")
+
 
 
     script(src="./javascripts/angular.min.js")

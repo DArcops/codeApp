@@ -7,12 +7,15 @@ var app = angular.module('app', [])
       $window.location.href = "/login"
 
     editor.resize.bind(editor,null)
-    
+
+    $scope.loadingTest = false;
+    $scope.loadingSolution = false;
+
       $('#summernote').summernote({
         //focus: true,                 // set focus to editable area after initializing summernote
       });
 
-      $scope.output = "Salida..."
+      $scope.output = ["Salida..."]
 
       editor.setOptions({
         fontSize: "13pt"
@@ -48,6 +51,7 @@ var app = angular.module('app', [])
       });
 
       $scope.probar = function(){
+        $scope.loadingTest = true;
         var code = editor.getValue();
 
         var url = "http://localhost:8088/api/v1/solutions/"+exercise_id+"?course_id="+course_id+"&lesson_id="+lesson_id
@@ -58,7 +62,8 @@ var app = angular.module('app', [])
         $http.post(url, data,config)
                 .success(function (response) {
                   console.log("Ya se compilo "+response )
-                  $scope.output = response;
+                  $scope.output = response.split("\n");
+                  $scope.loadingTest = false;
                 })
                 .error(function (data, status, header, config) {
                   console.log(data)
@@ -70,7 +75,7 @@ var app = angular.module('app', [])
 
   });
 ////////////////////////////////////////////////////////////////////
-app.controller('MoreExercises',function($scope,$http,$window) {
+app.controller('MoreExercises',function($timeout,$scope,$http,$window) {
 
         var location = $window.location.pathname
         exercise_id = location.substring(location.lastIndexOf("/")+1,location.length)
