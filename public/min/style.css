@@ -72,6 +72,10 @@ File: scss
 /*******************
 Global Styles
 *******************/
+.ace_scrollbar {
+    display: none !important;
+}
+
 .shell-wrap {
   box-shadow: 0 0 30px rgba(0,0,0,0.4);
 

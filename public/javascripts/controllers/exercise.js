@@ -6,9 +6,13 @@ var app = angular.module('app', [])
     if(localStorage.getItem("token") === null)
       $window.location.href = "/login"
 
+    editor.resize.bind(editor,null)
+    
       $('#summernote').summernote({
-        focus: true,                 // set focus to editable area after initializing summernote
+        //focus: true,                 // set focus to editable area after initializing summernote
       });
+
+      $scope.output = "Salida..."
 
       editor.setOptions({
         fontSize: "13pt"
@@ -24,6 +28,7 @@ var app = angular.module('app', [])
 
       var course_id = "";
       var lesson_id = location.substring(slash[3]+1,slash[4]);
+      var exercise_id = location.substring(slash[5]+1,location.length)
 
       for(var i = 9; ; i++)
         if(location[i] == "/") break;
@@ -43,7 +48,22 @@ var app = angular.module('app', [])
       });
 
       $scope.probar = function(){
-        console.log("testing")
+        var code = editor.getValue();
+
+        var url = "http://localhost:8088/api/v1/solutions/"+exercise_id+"?course_id="+course_id+"&lesson_id="+lesson_id
+        var data = {
+          "code": code
+        }
+
+        $http.post(url, data,config)
+                .success(function (response) {
+                  console.log("Ya se compilo "+response )
+                  $scope.output = response;
+                })
+                .error(function (data, status, header, config) {
+                  console.log(data)
+                });
+
       }
 
 
@@ -80,50 +100,6 @@ app.controller('MoreExercises',function($scope,$http,$window) {
 
 })
 /////////////////////////////////////////////////
-app.controller('Solution',  function($scope, $http, $window) {
-
-  var location = $window.location.pathname
-  exercise_id = location.substring(location.lastIndexOf("/")+1,location.length)
-
-  var slash = [];
-  for(var i= 0; i < location.length; i++)
-    if(location[i] == "/")
-      slash.push(i);
-
-  var course_id = "";
-  var lesson_id = location.substring(slash[3]+1,slash[4]);
-  var exercise_id = location.substring(slash[5]+1,location.length)
-
-  for(var i = 9; ; i++)
-    if(location[i] == "/") break;
-    else course_id += location[i];
-
-    var config = {
-      headers: {
-        'Authorization': localStorage.getItem("token")
-      }
-    };
-
-    $scope.probar = function(){
-      var code = editor.getValue();
-
-      var url = "http://localhost:8088/api/v1/solutions/"+exercise_id+"?course_id="+course_id+"&lesson_id="+lesson_id
-      var data = {
-        "code": code
-      }
-
-      $http.post(url, data,config)
-              .success(function (response) {
-                console.log("Ya se compilo "+response )
-
-              })
-              .error(function (data, status, header, config) {
-                console.log(data)
-              });
-
-    }
-
-});
 
 ////////////////////CONTROLLER FOR LAYOUT/////////////////////
 
