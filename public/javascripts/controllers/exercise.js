@@ -49,19 +49,70 @@ var app = angular.module('app', [])
 
 
   });
+////////////////////////////////////////////////////////////////////
+app.controller('MoreExercises',function($scope,$http,$window) {
+
+        var location = $window.location.pathname
+        exercise_id = location.substring(location.lastIndexOf("/")+1,location.length)
+
+        var slash = [];
+        for(var i= 0; i < location.length; i++)
+          if(location[i] == "/")
+            slash.push(i);
+
+        var course_id = "";
+        var lesson_id = location.substring(slash[3]+1,slash[4]);
+
+        for(var i = 9; ; i++)
+          if(location[i] == "/") break;
+          else course_id += location[i];
+
+    var config = {
+      headers: {
+        'Authorization': localStorage.getItem("token")
+      }
+    };
+
+  $http.get("http://localhost:8088/api/v1/exercises?course_id="+course_id+"&lesson_id="+lesson_id,config)
+  .then(function(response) {
+    $scope.exercises = response.data;
+  });
+
+})
 /////////////////////////////////////////////////
 app.controller('Solution',  function($scope, $http, $window) {
+
+  var location = $window.location.pathname
+  exercise_id = location.substring(location.lastIndexOf("/")+1,location.length)
+
+  var slash = [];
+  for(var i= 0; i < location.length; i++)
+    if(location[i] == "/")
+      slash.push(i);
+
+  var course_id = "";
+  var lesson_id = location.substring(slash[3]+1,slash[4]);
+  var exercise_id = location.substring(slash[5]+1,location.length)
+
+  for(var i = 9; ; i++)
+    if(location[i] == "/") break;
+    else course_id += location[i];
+
+    var config = {
+      headers: {
+        'Authorization': localStorage.getItem("token")
+      }
+    };
 
     $scope.probar = function(){
       var code = editor.getValue();
 
-      var url = "http://coliru.stacked-crooked.com/compile"
+      var url = "http://localhost:8088/api/v1/solutions/"+exercise_id+"?course_id="+course_id+"&lesson_id="+lesson_id
       var data = {
-        "cmd" : "g++ -std=c++17 -O2 -Wall -pedantic -pthread main.cpp && ./a.out",
-        "src": code
+        "code": code
       }
 
-      $http.post(url, data)
+      $http.post(url, data,config)
               .success(function (response) {
                 console.log("Ya se compilo "+response )
 

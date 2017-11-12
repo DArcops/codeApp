@@ -66,7 +66,7 @@ html(lang='en' ng-app="app")
           // ==============================================================
           // End Logo
           // ==============================================================
-          .navbar-collapse
+          .navbar-collapse(ng-controller='MoreExercises')
             // ==============================================================
             // toggle and nav items
             // ==============================================================
@@ -97,26 +97,10 @@ html(lang='en' ng-app="app")
                       h4.m-b-20 Ejercicios
                       // List style
                       ul.list-style-none
-                        li
+                        li(ng-repeat="exercise in exercises")
                           a(href='javascript:void(0)')
                             i.fa.fa-check.text-success
-                            |  You can give link
-                        li
-                          a(href='javascript:void(0)')
-                            i.fa.fa-check.text-success
-                            |  Give link
-                        li
-                          a(href='javascript:void(0)')
-                            i.fa.fa-check.text-success
-                            |  Another Give link
-                        li
-                          a(href='javascript:void(0)')
-                            i.fa.fa-check.text-success
-                            |  Forth link
-                        li
-                          a(href='javascript:void(0)')
-                            i.fa.fa-check.text-success
-                            |  Another fifth link
+                            |  {{exercise.name}}
 
             // ==============================================================
             // User profile and search
