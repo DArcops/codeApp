@@ -13,12 +13,13 @@ var app = angular.module('app', [])
 
       $('#summernote').summernote({
         //focus: true,                 // set focus to editable area after initializing summernote
+        minHeight: 500
       });
 
       $scope.output = ["Salida..."]
 
       editor.setOptions({
-        fontSize: "13pt"
+        fontSize: "11pt"
       });
 
       var location = $window.location.pathname
@@ -67,6 +68,43 @@ var app = angular.module('app', [])
                 })
                 .error(function (data, status, header, config) {
                   console.log(data)
+                });
+
+      }
+
+      $scope.solve = function(){
+        $scope.loadingSolution = true;
+        var code = editor.getValue();
+
+        var url = "http://localhost:8088/api/v1/solutions/"+exercise_id+"/solve?course_id="+course_id+"&lesson_id="+lesson_id
+        var data = {
+          "code": code
+        }
+
+        $http.post(url, data,config)
+                .success(function (response) {
+                  $scope.loadingSolution = false;
+                  console.log(response)
+                  $scope.output = response.output.split("\n");
+                  if(response.status == "Wrong"){
+                    swal({
+                      type: 'error',
+                      title: 'Solucion incorrecta',
+                      showConfirmButton: false,
+                      timer: 1500
+                    })
+                  } else if(response.status == "Acepted"){
+                    swal({
+                      type: 'success',
+                      title: 'Respuesta correcta',
+                      showConfirmButton: false,
+                      timer: 1500
+                    })
+                  }
+                })
+                .error(function (data, status, header, config) {
+                  console.log(data)
+                  $scope.loadingSolution = false;
                 });
 
       }
