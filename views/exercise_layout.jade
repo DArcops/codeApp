@@ -71,7 +71,7 @@ html(lang='en' ng-app="app")
             // toggle and nav items
             // ==============================================================
             ul.navbar-nav.mr-auto.mt-md-0
-    
+
               li.nav-item.dropdown.mega-dropdown.show
                 a.nav-link.dropdown-toggle.text-muted.waves-effect.waves-dark(href='', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
                   i.fa.fa-plus-circle  Ejercicios
@@ -141,6 +141,10 @@ html(lang='en' ng-app="app")
             ul#sidebarnav
               li
                 a.waves-effect.waves-dark(href='index.html', aria-expanded='false')
+                  i.mdi.mdi-gauge
+                  span.hide-menu Mis Cursos
+              li
+                a.waves-effect.waves-dark(href='/courses', aria-expanded='false')
                   i.mdi.mdi-gauge
                   span.hide-menu Cursos
               li

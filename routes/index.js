@@ -26,6 +26,10 @@ router.get('/courses/:course_id/lessons/:lesson_id',function(req,res,next){
 router.get('/courses/:course_id/lessons/:lesson_id/exercises/:exercise_id',function(req,res,next){
   res.render('./exercise/one')
 });
+
+router.get('/profile',function(req,res,next){
+  res.render('./user/profile')
+});
 ///////////////////////////////////////////////////////NEWWWWW!!!!!!!/////////////////////
 
 router.get('/loco', function(req, res, next) {
