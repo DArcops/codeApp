@@ -30,6 +30,12 @@ router.get('/courses/:course_id/lessons/:lesson_id/exercises/:exercise_id',funct
 router.get('/profile',function(req,res,next){
   res.render('./user/profile')
 });
+
+router.get('/my_courses',function(req,res,next){
+  res.render('./user/courses')
+});
+
+
 ///////////////////////////////////////////////////////NEWWWWW!!!!!!!/////////////////////
 
 router.get('/loco', function(req, res, next) {
