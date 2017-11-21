@@ -12,6 +12,8 @@ block content
           p {{course.short_description}}
           button.btn.waves-effect.waves-light.btn-rounded.btn-primary(type='button' data-toggle="modal" data-target="#cu{{$index}}") Cursar
           button.btn.waves-effect.waves-light.btn-rounded.btn-danger(style="margin-left:15%;" type='button' data-toggle="modal" data-target="#ex{{$index}}") Info
+          button.btn.btn-success.btn-circle(type='button' style="margin-left:15%;" ng-show="administrator")
+            i.fa.fa-pencil
           .modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true', style='display: none;' id="ex{{$index}}")
             .modal-dialog.modal-lg
               .modal-content
@@ -38,6 +40,9 @@ block content
                   button.btn.btn-success(type='button' ng-click='suscribe(pasale,course.id)') Confirmar
                   button.btn.btn-danger.waves-effect.text-left(type='button', data-dismiss='modal' ) Cerrar
 
+    .col-lg-4.col-xlg-3.col-md-5
+      button.btn.btn-info.btn-circle.btn-xl(type='button' style="margin-left:20%;margin-top:50%;" ng-show="administrator" ng-click="createCourse()")
+        i.fa.fa-plus
 
 
 

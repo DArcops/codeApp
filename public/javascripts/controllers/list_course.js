@@ -12,6 +12,11 @@ var app = angular.module('app', [])
         }
       };
 
+      $http.get("http://localhost:8088/api/v1/users/profile",config)
+      .then(function(response) {
+        $scope.administrator = response.data.administrator;
+      });
+
       $http.get("http://localhost:8088/api/v1/courses/",config)
         .then(function(response) {
           $scope.courses = response.data;
@@ -56,6 +61,10 @@ var app = angular.module('app', [])
                     })
                   }
                 });
+      }
+
+      $scope.createCourse = function(){
+        $window.location.href = "/new_course";
       }
   });
 

@@ -11,6 +11,11 @@ var app = angular.module('app', [])
         }
       };
 
+      $http.get("http://localhost:8088/api/v1/users/profile",config)
+      .then(function(response) {
+        $scope.administrator = response.data.administrator;
+      });
+
 
       var location = $window.location.pathname;
       var lastSlash = location.lastIndexOf("/")
