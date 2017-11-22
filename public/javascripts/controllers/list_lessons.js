@@ -49,6 +49,10 @@ var app = angular.module('app', [])
         $window.location.href = "/courses/"+course_id+"/lessons/"+lessonID;
       };
 
+      $scope.update = function(lessonID) {
+        $window.location.href = "/lesson/update/"+lessonID;
+      }
+
   });
 
   ///////////////////CONTROLLER FOR LAYOUT/////////////////////

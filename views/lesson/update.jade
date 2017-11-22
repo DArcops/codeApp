@@ -1,0 +1,32 @@
+
+
+extends ../layout2.jade
+
+
+block content
+  .col-lg-8.col-xlg-9.col-md-7.hoverable(style="display: inline-block; margin-left:10%; margin-top:1.2%"  ng-controller='Update_Lesson')
+    .card
+      .card-block
+          .form-group
+            label.col-md-12 Nombre de la Lección
+            .col-md-12
+              input.form-control.form-control-line(type='text', ng-model="lesson_name")
+          .form-group
+            label.col-md-12 Descripción
+            .col-md-12
+              textarea.form-control.form-control-line(rows='5', ng-model="lesson_description")
+          .form-group
+            .col-sm-12
+              button.btn.btn-success(type='submit',name='action' ,ng-click='submit()') Actualizar
+
+    #summernote
+      p Escribe la lección
+
+
+    script(src="./javascripts/angular.min.js")
+    script(src="./javascripts/jquery-2.1.1.min.js")
+    script(src="./javascripts/controllers/update_lesson.js")
+    script.
+      $(document).ready(function() {
+      $('#summernote').summernote();
+      });

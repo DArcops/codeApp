@@ -35,6 +35,14 @@ router.get('/my_courses',function(req,res,next){
   res.render('./user/courses')
 });
 
+router.get('/course/update/:course_id',function(req,res,next){
+  res.render('course/update')
+});
+
+router.get('/lesson/update/:lesson_id',function(req,res,next){
+  res.render('./lesson/update')
+});
+
 
 ///////////////////////////////////////////////////////NEWWWWW!!!!!!!/////////////////////
 

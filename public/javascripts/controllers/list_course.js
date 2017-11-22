@@ -66,6 +66,10 @@ var app = angular.module('app', [])
       $scope.createCourse = function(){
         $window.location.href = "/new_course";
       }
+
+      $scope.update = function(course) {
+        $window.location.href = "/course/update/"+course
+      }
   });
 
 ////////////////////CONTROLLER FOR LAYOUT/////////////////////

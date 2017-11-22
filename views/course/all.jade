@@ -12,7 +12,7 @@ block content
           p {{course.short_description}}
           button.btn.waves-effect.waves-light.btn-rounded.btn-primary(type='button' data-toggle="modal" data-target="#cu{{$index}}") Cursar
           button.btn.waves-effect.waves-light.btn-rounded.btn-danger(style="margin-left:15%;" type='button' data-toggle="modal" data-target="#ex{{$index}}") Info
-          button.btn.btn-success.btn-circle(type='button' style="margin-left:15%;" ng-show="administrator")
+          button.btn.btn-success.btn-circle(type='button' style="margin-left:15%;" ng-show="administrator" ng-click="update(course.id)")
             i.fa.fa-pencil
           .modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true', style='display: none;' id="ex{{$index}}")
             .modal-dialog.modal-lg
