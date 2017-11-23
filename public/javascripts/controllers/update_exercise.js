@@ -1,6 +1,15 @@
 
 var app = angular.module('app', [])
-  app.controller('Update_Lesson',  function($scope, $http, $window) {
+  app.controller('Update_Exercise',  function($scope, $http, $window) {
+
+    var location = $window.location.pathname
+
+    var slash = [];
+    for(var i= 0; i < location.length; i++)
+      if(location[i] == "/")
+        slash.push(i);
+
+    var lesson_id = location.substring(slash[3]+1,slash[4]);
 
     var config = {
       headers: {
@@ -9,22 +18,29 @@ var app = angular.module('app', [])
     };
 
     var location = $window.location.pathname;
-    var lesson_id = location.substring(location.length-1,location.length)
+    var exercise_id = location.substring(location.length-1,location.length)
 
-    $http.get("http://localhost:8088/api/v1/lessons/"+lesson_id,config)
+    $http.get("http://localhost:8088/api/v1/exercises/"+exercise_id+"?lesson_id="+lesson_id+"&to_update=true",config)
       .then(function(response) {
-        $scope.lesson_name = response.data.name;
-        $scope.lesson_description =response.data.description;
+        $scope.exercise_name = response.data.name;
+        $scope.dataInput = response.data.input;
+        $scope.dataOutput = response.data.output;
         $('#summernote').summernote('code',response.data.code);
         console.log(response.data);
     });
 
-    $scope.submit = function() {
-      var url = "http://localhost:8088/api/v1/lessons/update/"+lesson_id;
+    $scope.submit = function(){
+      console.log("que pedou")
+      var url = "http://localhost:8088/api/v1/exercises/update/"+exercise_id
+
       var data = {
-        "name" : $scope.lesson_name,
-        "code": $('#summernote').summernote('code'),
-        "description": $scope.lesson_description
+        "name" : $scope.exercise_name,
+        "course_id" : parseInt(2),
+        "level_id": parseInt(2),
+        "lesson_id": parseInt(2),
+        "input": $scope.dataInput,
+        "output": $scope.dataOutput,
+        "code": $('#summernote').summernote('code')
       }
       $http.post(url, data, config)
               .success(function (data, status, headers, config) {
@@ -36,15 +52,11 @@ var app = angular.module('app', [])
                 })
               })
               .error(function (data, status, header, config) {
-                if(status == 401)
-                  $window.location.href = "/login"
-
-                  swal({
-                    type: 'error',
-                    title: 'Hubo un problema',
-                    timer: 1500
-                  })
-
+                swal({
+                  type: 'error',
+                  title: 'Hubo un problema',
+                  timer: 1500
+                })
               });
     }
 

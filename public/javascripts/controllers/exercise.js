@@ -11,6 +11,8 @@ var app = angular.module('app', [])
     $scope.loadingTest = false;
     $scope.loadingSolution = false;
 
+
+
       $('#summernote').summernote({
         //focus: true,                 // set focus to editable area after initializing summernote
         minHeight: 500
@@ -44,12 +46,21 @@ var app = angular.module('app', [])
           }
         };
 
+        $http.get("http://localhost:8088/api/v1/users/profile",config)
+        .then(function(response) {
+          $scope.administrator = response.data.administrator;
+        });
+
       $http.get("http://localhost:8088/api/v1/exercises/"+exercise_id+"?course_id="+course_id+"&lesson_id="+lesson_id,config)
       .then(function(response) {
         console.log(response.data);
         $('#summernote').summernote('code',response.data.code);
         $('#summernote').summernote('destroy');
       });
+
+      $scope.update = function() {
+        $window.location.href = "/exercise/update/"+exercise_id+"/"+lesson_id
+      }
 
       $scope.probar = function(){
         $scope.loadingTest = true;

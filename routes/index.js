@@ -39,6 +39,10 @@ router.get('/course/update/:course_id',function(req,res,next){
   res.render('course/update')
 });
 
+router.get('/exercise/update/:exercise_id/:lesson_id',function(req,res,next){
+  res.render('./exercise/update')
+});
+
 router.get('/lesson/update/:lesson_id',function(req,res,next){
   res.render('./lesson/update')
 });
