@@ -40,6 +40,7 @@ block content
             .col-sm-8
               select.form-control.form-control-line(ng-model='selected_level' ng-change='refresh()')
                 option(ng-repeat='level in levels' value='{{level.id}}' selected="selected"){{level.number}}
+      button.btn-rounded.btn-success(style="margin-left:30%" ng-show="administrator" ng-click="addLesson()")  Agregar lección
 
 
     script(src="./javascripts/angular.min.js")

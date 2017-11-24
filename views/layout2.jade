@@ -153,14 +153,48 @@ html(lang='en' ng-app="app")
                 a.waves-effect.waves-dark(href='/profile', aria-expanded='false')
                   i.mdi.mdi-account-check
                   span.hide-menu Perfil
-              li
-                a.waves-effect.waves-dark(href='table-basic.html', aria-expanded='false')
-                  i.mdi.mdi-table
-                  span.hide-menu Rank de Usuarios
+
               li
                 a.waves-effect.waves-dark(href='icon-material.html', aria-expanded='false')
                   i.mdi.mdi-emoticon
                   span.hide-menu Estadisticas
+              li(style="margin-top:30%;")
+                .card.bg-light(style="background:#FFF")
+                  .card-body(style="background:#FFF")
+                    #myCarousel4.carousel.vert.slide(data-ride='carousel')
+                      // Carousel items
+                      .carousel-inner(style="background:#FFF")
+                        .carousel-item.flex-column
+                          i.fa.fa-line-chart
+                          p Mejora tu entrenamiento
+                          h4
+                            | Mide tu progreso
+                          br
+                          span.font-bold Consulta soluciones y
+                            br
+                            | Repasa temas
+
+                        .carousel-item.flex-column.active
+                          i.fa.fa-area-chart
+                          br
+                          h4
+                            | Ve tus mejoras
+                          br
+                          span Consulta estadisticas
+                          br
+                          |    de entrenamiento
+                          div
+                            button.btn.btn-success.d-inline.waves-effect.waves-light.m-t-15 Ver
+                        .carousel-item.flex-column
+                          h4
+                            | Consulta otras soluciones
+                          br
+                          span.font-bold Optimas
+                          br
+                          | despues de resolver un ejercicio
+                          div
+                            button.btn.btn-primary.waves-effect.waves-light.m-t-15 ver como
+
               //li
                 //a.waves-effect.waves-dark(href='map-google.html', aria-expanded='false')
                   //i.mdi.mdi-earth
