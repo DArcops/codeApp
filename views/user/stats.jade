@@ -1,0 +1,382 @@
+extends ../layout2.jade
+
+
+block content
+  .row(ng-controller="Stats" ng-show="administrator")
+    .col-lg-12
+      .card
+        .card-body(style="margin-left:20px;margin-top:20px;margin-bottom:20px;margin-right:20px;")
+          select.custom-select.pull-right(ng-model="selectedCourse" ng-change='change()')
+            option(selected='' ng-repeat="c in courses"  value="{{c.id}}") {{c.name}}
+
+          h4.card-title Usuarios
+          h6.card-subtitle Inscritos en Curso
+          .table-responsive
+            table.table.stylish-table
+              thead
+                tr
+                  th(style='width:90px;') Usuario
+                  th Nombre
+                  th Ejercicios
+                  th Price
+              tbody
+                tr(ng-repeat="u in users")
+                  td
+                    span.round
+                      i.ti-user
+                  td
+                    h6
+                      a.link(href='javascript:void(0)') {{u.username}}
+                    small.text-muted email : {{u.email}}
+                  td
+                    h5 357
+                  td
+                    h5 $435
+
+  .row(ng-controller="Stats" ng-show="administrator" )
+    .col-lg-8.col-xlg-9.col-md-7
+      .card
+        .card-body(style="margin-left:20px;margin-top:20px;margin-bottom:20px;margin-right:20px;")
+          .d-flex.flex-wrap
+            div
+              h3.card-title Newsletter Campaign
+              h6.card-subtitle Overview of Newsletter Campaign
+            .ml-auto.align-self-center
+              ul.list-inline.m-b-0
+                li
+                  h6.text-muted.text-success
+                    i.fa.fa-circle.font-10.m-r-10
+                    | Open Rate
+                li
+                  h6.text-muted.text-info
+                    i.fa.fa-circle.font-10.m-r-10
+                    | Recurring Payments
+          .campaign.ct-charts
+            .chartist-tooltip(style='top: 121px; left: 52.6719px;')
+            svg.ct-chart-line(xmlns:ct='http://gionkunz.github.com/chartist-js/ct', width='100%', height='100%', style='width: 100%; height: 100%;')
+              g.ct-grids
+                line.ct-grid.ct-horizontal(x1='30', x2='30', y1='15', y2='245')
+                line.ct-grid.ct-horizontal(x1='116.23660714285714', x2='116.23660714285714', y1='15', y2='245')
+                line.ct-grid.ct-horizontal(x1='202.47321428571428', x2='202.47321428571428', y1='15', y2='245')
+                line.ct-grid.ct-horizontal(x1='288.70982142857144', x2='288.70982142857144', y1='15', y2='245')
+                line.ct-grid.ct-horizontal(x1='374.94642857142856', x2='374.94642857142856', y1='15', y2='245')
+                line.ct-grid.ct-horizontal(x1='461.18303571428567', x2='461.18303571428567', y1='15', y2='245')
+                line.ct-grid.ct-horizontal(x1='547.4196428571429', x2='547.4196428571429', y1='15', y2='245')
+                line.ct-grid.ct-horizontal(x1='633.65625', x2='633.65625', y1='15', y2='245')
+                line.ct-grid.ct-vertical(y1='245', y2='245', x1='30', x2='633.65625')
+                line.ct-grid.ct-vertical(y1='168.33333333333331', y2='168.33333333333331', x1='30', x2='633.65625')
+                line.ct-grid.ct-vertical(y1='91.66666666666666', y2='91.66666666666666', x1='30', x2='633.65625')
+                line.ct-grid.ct-vertical(y1='15', y2='15', x1='30', x2='633.65625')
+              g
+                g.ct-series.ct-series-a
+                  path.ct-area(d='M 30 245 L 30 245 C 44.373 238.611 87.491 214.333 116.237 206.667 C 144.982 199 173.728 202.833 202.473 199 C 231.219 195.167 259.964 207.944 288.71 183.667 C 317.455 159.389 346.201 54.611 374.946 53.333 C 403.692 52.056 432.437 154.278 461.183 176 C 489.929 197.722 518.674 202.833 547.42 183.667 C 576.165 164.5 619.283 81.444 633.656 61 L 633.656 245 Z', x1='NaN')
+                  animate(attributename='d', begin='indefinite', dur='500ms', from='M30,230L30,230C44.373,230,87.491,230,116.237,230C144.982,230,173.728,230,202.473,230C231.219,230,259.964,230,288.71,230C317.455,230,346.201,230,374.946,230C403.692,230,432.437,230,461.183,230C489.929,230,518.674,230,547.42,230C576.165,230,619.283,230,633.656,230L633.656,230Z', to='M30,245L30,245C44.373,238.611,87.491,214.333,116.237,206.667C144.982,199,173.728,202.833,202.473,199C231.219,195.167,259.964,207.944,288.71,183.667C317.455,159.389,346.201,54.611,374.946,53.333C403.692,52.056,432.437,154.278,461.183,176C489.929,197.722,518.674,202.833,547.42,183.667C576.165,164.5,619.283,81.444,633.656,61L633.656,245Z', fill='freeze')
+                  path.ct-line(d='M 30 245 C 44.373 238.611 87.491 214.333 116.237 206.667 C 144.982 199 173.728 202.833 202.473 199 C 231.219 195.167 259.964 207.944 288.71 183.667 C 317.455 159.389 346.201 54.611 374.946 53.333 C 403.692 52.056 432.437 154.278 461.183 176 C 489.929 197.722 518.674 202.833 547.42 183.667 C 576.165 164.5 619.283 81.444 633.656 61')
+                  animate(attributename='d', begin='indefinite', dur='500ms', from='M30,230C44.373,230,87.491,230,116.237,230C144.982,230,173.728,230,202.473,230C231.219,230,259.964,230,288.71,230C317.455,230,346.201,230,374.946,230C403.692,230,432.437,230,461.183,230C489.929,230,518.674,230,547.42,230C576.165,230,619.283,230,633.656,230', to='M30,245C44.373,238.611,87.491,214.333,116.237,206.667C144.982,199,173.728,202.833,202.473,199C231.219,195.167,259.964,207.944,288.71,183.667C317.455,159.389,346.201,54.611,374.946,53.333C403.692,52.056,432.437,154.278,461.183,176C489.929,197.722,518.674,202.833,547.42,183.667C576.165,164.5,619.283,81.444,633.656,61', fill='freeze')
+                  line.ct-point(x1='30', y1='245', x2='30.01', y2='245', value='0')
+                  line.ct-point(x1='116.23660714285714', y1='206.66666666666666', x2='116.24660714285714', y2='206.66666666666666', value='5')
+                  line.ct-point(x1='202.47321428571428', y1='199', x2='202.48321428571427', y2='199', value='6')
+                  line.ct-point(x1='288.70982142857144', y1='183.66666666666666', x2='288.71982142857144', y2='183.66666666666666', value='8')
+                  line.ct-point(x1='374.94642857142856', y1='53.33333333333334', x2='374.95642857142855', y2='53.33333333333334', value='25')
+                  line.ct-point(x1='461.18303571428567', y1='176', x2='461.19303571428566', y2='176', value='9')
+                  line.ct-point(x1='547.4196428571429', y1='183.66666666666666', x2='547.4296428571429', y2='183.66666666666666', value='8')
+                  line.ct-point(x1='633.65625', y1='61', x2='633.66625', y2='61', value='24')
+                g.ct-series.ct-series-b
+                  path.ct-area(d='M 30 245 L 30 245 C 44.373 241.167 87.491 223.278 116.237 222 C 144.982 220.722 173.728 236.056 202.473 237.333 C 231.219 238.611 259.964 238.611 288.71 229.667 C 317.455 220.722 346.201 182.389 374.946 183.667 C 403.692 184.944 432.437 233.5 461.183 237.333 C 489.929 241.167 518.674 206.667 547.42 206.667 C 576.165 206.667 619.283 232.222 633.656 237.333 L 633.656 245 Z', x1='NaN')
+                  animate(attributename='d', begin='indefinite', dur='500ms', from='M30,230L30,230C44.373,230,87.491,230,116.237,230C144.982,230,173.728,230,202.473,230C231.219,230,259.964,230,288.71,230C317.455,230,346.201,230,374.946,230C403.692,230,432.437,230,461.183,230C489.929,230,518.674,230,547.42,230C576.165,230,619.283,230,633.656,230L633.656,230Z', to='M30,245L30,245C44.373,241.167,87.491,223.278,116.237,222C144.982,220.722,173.728,236.056,202.473,237.333C231.219,238.611,259.964,238.611,288.71,229.667C317.455,220.722,346.201,182.389,374.946,183.667C403.692,184.944,432.437,233.5,461.183,237.333C489.929,241.167,518.674,206.667,547.42,206.667C576.165,206.667,619.283,232.222,633.656,237.333L633.656,245Z', fill='freeze')
+                  path.ct-line(d='M 30 245 C 44.373 241.167 87.491 223.278 116.237 222 C 144.982 220.722 173.728 236.056 202.473 237.333 C 231.219 238.611 259.964 238.611 288.71 229.667 C 317.455 220.722 346.201 182.389 374.946 183.667 C 403.692 184.944 432.437 233.5 461.183 237.333 C 489.929 241.167 518.674 206.667 547.42 206.667 C 576.165 206.667 619.283 232.222 633.656 237.333')
+                  animate(attributename='d', begin='indefinite', dur='500ms', from='M30,230C44.373,230,87.491,230,116.237,230C144.982,230,173.728,230,202.473,230C231.219,230,259.964,230,288.71,230C317.455,230,346.201,230,374.946,230C403.692,230,432.437,230,461.183,230C489.929,230,518.674,230,547.42,230C576.165,230,619.283,230,633.656,230', to='M30,245C44.373,241.167,87.491,223.278,116.237,222C144.982,220.722,173.728,236.056,202.473,237.333C231.219,238.611,259.964,238.611,288.71,229.667C317.455,220.722,346.201,182.389,374.946,183.667C403.692,184.944,432.437,233.5,461.183,237.333C489.929,241.167,518.674,206.667,547.42,206.667C576.165,206.667,619.283,232.222,633.656,237.333', fill='freeze')
+                  line.ct-point(x1='30', y1='245', x2='30.01', y2='245', value='0')
+                  line.ct-point(x1='116.23660714285714', y1='222', x2='116.24660714285714', y2='222', value='3')
+                  line.ct-point(x1='202.47321428571428', y1='237.33333333333334', x2='202.48321428571427', y2='237.33333333333334', value='1')
+                  line.ct-point(x1='288.70982142857144', y1='229.66666666666666', x2='288.71982142857144', y2='229.66666666666666', value='2')
+                  line.ct-point(x1='374.94642857142856', y1='183.66666666666666', x2='374.95642857142855', y2='183.66666666666666', value='8')
+                  line.ct-point(x1='461.18303571428567', y1='237.33333333333334', x2='461.19303571428566', y2='237.33333333333334', value='1')
+                  line.ct-point(x1='547.4196428571429', y1='206.66666666666666', x2='547.4296428571429', y2='206.66666666666666', value='5')
+                  line.ct-point(x1='633.65625', y1='237.33333333333334', x2='633.66625', y2='237.33333333333334', value='1')
+              g.ct-labels
+                foreignobject(style='overflow: visible;', x='30', y='250', width='86.23660714285714', height='20')
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 1
+                foreignobject(style='overflow: visible;', x='116.23660714285714', y='250', width='86.23660714285714', height='20')
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 2
+                foreignobject(style='overflow: visible;', x='202.47321428571428', y='250', width='86.23660714285717', height='20')
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 3
+                foreignobject(style='overflow: visible;', x='288.70982142857144', y='250', width='86.23660714285711', height='20')
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 4
+                foreignobject(style='overflow: visible;', x='374.94642857142856', y='250', width='86.23660714285711', height='20')
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 5
+                foreignobject(style='overflow: visible;', x='461.18303571428567', y='250', width='86.23660714285722', height='20')
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 6
+                foreignobject(style='overflow: visible;', x='547.4196428571429', y='250', width='86.23660714285711', height='20')
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 7
+                foreignobject(style='overflow: visible;', x='633.65625', y='250', width='30', height='20')
+                  span.ct-label.ct-horizontal.ct-end(style='width: 30px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 8
+                foreignobject(style='overflow: visible;', y='168.33333333333331', x='10', height='76.66666666666667', width='10')
+                  span.ct-label.ct-vertical.ct-start(style='height: 77px; width: 10px', xmlns='http://www.w3.org/2000/xmlns/') 0k
+                foreignobject(style='overflow: visible;', y='91.66666666666664', x='10', height='76.66666666666667', width='10')
+                  span.ct-label.ct-vertical.ct-start(style='height: 77px; width: 10px', xmlns='http://www.w3.org/2000/xmlns/') 10k
+                foreignobject(style='overflow: visible;', y='15', x='10', height='76.66666666666666', width='10')
+                  span.ct-label.ct-vertical.ct-start(style='height: 77px; width: 10px', xmlns='http://www.w3.org/2000/xmlns/') 20k
+                foreignobject(style='overflow: visible;', y='-15', x='10', height='30', width='10')
+                  span.ct-label.ct-vertical.ct-start(style='height: 30px; width: 10px', xmlns='http://www.w3.org/2000/xmlns/') 30k
+              defs
+                lineargradient#gradient(x1='0', y1='1', x2='0', y2='0')
+                  stop(offset='0', stop-color='rgba(255, 255, 255, 1)')
+                  stop(offset='1', stop-color='rgba(38, 198, 218, 1)')
+          .row.text-center
+            .col-lg-4.col-md-4.m-t-20
+              h1.m-b-0.font-light 5098
+              small Total Sent
+            .col-lg-4.col-md-4.m-t-20
+              h1.m-b-0.font-light 4156
+              small Mail Open Rate
+            .col-lg-4.col-md-4.m-t-20
+              h1.m-b-0.font-light 1369
+              small Click Rate
+
+
+
+    .col-lg-4.col-md-5
+      .card
+        .card-body(style="margin-left:20px;margin-top:20px;margin-bottom:20px;margin-right:20px;")
+          h3.card-title Our Visitors
+          h6.card-subtitle Different Devices Used to Visit
+          #visitor.c3(style='height: 290px; width: 100%; max-height: 290px; position: relative;')
+            svg(width='288.328125', height='290', style='overflow: hidden;')
+              defs
+                clippath#c3-1511633183284-clip
+                  rect(width='288.328125', height='266')
+                clippath#c3-1511633183284-clip-xaxis
+                  rect(x='-31', y='-20', width='350.328125', height='40')
+                clippath#c3-1511633183284-clip-yaxis
+                  rect(x='-29', y='-4', width='20', height='290')
+                clippath#c3-1511633183284-clip-grid
+                  rect(width='288.328125', height='266')
+                clippath#c3-1511633183284-clip-subchart
+                  rect(width='288.328125')
+              g(transform='translate(0.5,4.5)')
+                text.c3-text.c3-empty(text-anchor='middle', dominant-baseline='middle', x='144.1640625', y='133', style='opacity: 0;')
+                rect.c3-zoom-rect(width='288.328125', height='266', style='opacity: 0;')
+                g.c3-regions(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip)', style='visibility: hidden;')
+                g.c3-grid(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip-grid)', style='visibility: hidden;')
+                  g.c3-xgrid-focus
+                    line.c3-xgrid-focus(x1='-10', x2='-10', y1='0', y2='266', style='visibility: hidden;')
+                g.c3-chart(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip)')
+                  g.c3-event-rects.c3-event-rects-single(style='fill-opacity: 0;')
+                    rect.c3-event-rect.c3-event-rect-0(x='0.8359375', y='0', width='288.328125', height='266')
+                  g.c3-chart-bars
+                    g.c3-chart-bar.c3-target.c3-target-Other(style='opacity: 1; pointer-events: none;')
+                      g.c3-shapes.c3-shapes-Other.c3-bars.c3-bars-Other(style='cursor: pointer;')
+                    g.c3-chart-bar.c3-target.c3-target-Desktop(style='opacity: 1; pointer-events: none;')
+                      g.c3-shapes.c3-shapes-Desktop.c3-bars.c3-bars-Desktop(style='cursor: pointer;')
+                    g.c3-chart-bar.c3-target.c3-target-Tablet(style='opacity: 1; pointer-events: none;')
+                      g.c3-shapes.c3-shapes-Tablet.c3-bars.c3-bars-Tablet(style='cursor: pointer;')
+                    g.c3-chart-bar.c3-target.c3-target-Mobile(style='opacity: 1; pointer-events: none;')
+                      g.c3-shapes.c3-shapes-Mobile.c3-bars.c3-bars-Mobile(style='cursor: pointer;')
+                  g.c3-chart-lines
+                    g.c3-chart-line.c3-target.c3-target-Other(style='opacity: 1; pointer-events: none;')
+                      g.c3-shapes.c3-shapes-Other.c3-lines.c3-lines-Other
+                      g.c3-shapes.c3-shapes-Other.c3-areas.c3-areas-Other
+                      g.c3-selected-circles.c3-selected-circles-Other
+                      g.c3-shapes.c3-shapes-Other.c3-circles.c3-circles-Other(style='cursor: pointer;')
+                    g.c3-chart-line.c3-target.c3-target-Desktop(style='opacity: 1; pointer-events: none;')
+                      g.c3-shapes.c3-shapes-Desktop.c3-lines.c3-lines-Desktop
+                      g.c3-shapes.c3-shapes-Desktop.c3-areas.c3-areas-Desktop
+                      g.c3-selected-circles.c3-selected-circles-Desktop
+                      g.c3-shapes.c3-shapes-Desktop.c3-circles.c3-circles-Desktop(style='cursor: pointer;')
+                    g.c3-chart-line.c3-target.c3-target-Tablet(style='opacity: 1; pointer-events: none;')
+                      g.c3-shapes.c3-shapes-Tablet.c3-lines.c3-lines-Tablet
+                      g.c3-shapes.c3-shapes-Tablet.c3-areas.c3-areas-Tablet
+                      g.c3-selected-circles.c3-selected-circles-Tablet
+                      g.c3-shapes.c3-shapes-Tablet.c3-circles.c3-circles-Tablet(style='cursor: pointer;')
+                    g.c3-chart-line.c3-target.c3-target-Mobile(style='opacity: 1; pointer-events: none;')
+                      g.c3-shapes.c3-shapes-Mobile.c3-lines.c3-lines-Mobile
+                      g.c3-shapes.c3-shapes-Mobile.c3-areas.c3-areas-Mobile
+                      g.c3-selected-circles.c3-selected-circles-Mobile
+                      g.c3-shapes.c3-shapes-Mobile.c3-circles.c3-circles-Mobile(style='cursor: pointer;')
+                  g.c3-chart-arcs(transform='translate(144.1640625,128)')
+                    text.c3-chart-arcs-title(style='text-anchor: middle; opacity: 1;') Our visitor
+                    g.c3-chart-arc.c3-target.c3-target-Other
+                      g.c3-shapes.c3-shapes-Other.c3-arcs.c3-arcs-Other
+                        path.c3-shape.c3-shape.c3-arc.c3-arc-Other(transform='', style='fill: rgb(236, 239, 241); cursor: pointer; opacity: 1;', d='M-113.69797511054642,43.11995426437235A121.6,121.6 0 0,1 -56.51033772052232,-107.67145271943028L-47.21587427964694,-89.96233220636609A101.6,101.6 0 0,0 -94.99765025683813,36.02785652352164Z')
+                      text(dy='.35em', style='opacity: 1; text-anchor: middle; pointer-events: none;', transform='translate(-90.95838008843717,-34.49596341149787)')
+                    g.c3-chart-arc.c3-target.c3-target-Desktop
+                      g.c3-shapes.c3-shapes-Desktop.c3-arcs.c3-arcs-Desktop
+                        path.c3-shape.c3-shape.c3-arc.c3-arc-Desktop(transform='', style='fill: rgb(116, 90, 242); cursor: pointer; opacity: 1;', d='M-56.51033772052232,-107.67145271943028A121.6,121.6 0 0,1 -1.3034005345198293e-13,-121.6L-1.0890254466053837e-13,-101.6A101.6,101.6 0 0,0 -47.21587427964694,-89.96233220636609Z')
+                      text(dy='.35em', style='opacity: 1; text-anchor: middle; pointer-events: none;', transform='translate(-23.280627821893702,-94.45321999920633)')
+                    g.c3-chart-arc.c3-target.c3-target-Tablet
+                      g.c3-shapes.c3-shapes-Tablet.c3-arcs.c3-arcs-Tablet
+                        path.c3-shape.c3-shape.c3-arc.c3-arc-Tablet(transform='', style='fill: rgb(38, 198, 218); cursor: pointer; opacity: 1;', d='M80.63571524208072,91.01890697760587A121.6,121.6 0 0,1 -113.69797511054642,43.11995426437235L-94.99765025683813,36.02785652352164A101.6,101.6 0 0,0 67.37326207726481,76.04869201418384Z')
+                      text(dy='.35em', style='opacity: 1; text-anchor: middle; pointer-events: none;', transform='translate(-23.280627821893592,94.45321999920634)')
+                    g.c3-chart-arc.c3-target.c3-target-Mobile
+                      g.c3-shapes.c3-shapes-Mobile.c3-arcs.c3-arcs-Mobile
+                        path.c3-shape.c3-shape.c3-arc.c3-arc-Mobile(transform='', style='fill: rgb(30, 136, 229); cursor: pointer; opacity: 1;', d='M7.445852538815907e-15,-121.6A121.6,121.6 0 0,1 80.63571524208072,91.01890697760587L67.37326207726481,76.04869201418384A101.6,101.6 0 0,0 6.221205739668554e-15,-101.6Z')
+                      text(dy='.35em', style='opacity: 1; text-anchor: middle; pointer-events: none;', transform='translate(90.95838008843715,-34.495963411497875)')
+                  g.c3-chart-texts
+                    g.c3-chart-text.c3-target.c3-target-Other(style='opacity: 1; pointer-events: none;')
+                      g.c3-texts.c3-texts-Other
+                    g.c3-chart-text.c3-target.c3-target-Desktop(style='opacity: 1; pointer-events: none;')
+                      g.c3-texts.c3-texts-Desktop
+                    g.c3-chart-text.c3-target.c3-target-Tablet(style='opacity: 1; pointer-events: none;')
+                      g.c3-texts.c3-texts-Tablet
+                    g.c3-chart-text.c3-target.c3-target-Mobile(style='opacity: 1; pointer-events: none;')
+                      g.c3-texts.c3-texts-Mobile
+                g.c3-grid.c3-grid-lines(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip-grid)')
+                  g.c3-xgrid-lines
+                  g.c3-ygrid-lines
+                g.c3-axis.c3-axis-x(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip-xaxis)', transform='translate(0,266)', style='visibility: visible; opacity: 0;')
+                  text.c3-axis-x-label(transform='', style='text-anchor: end;', x='288.328125', dx='-0.5em', dy='-0.5em')
+                  g.tick(transform='translate(145, 0)', style='opacity: 1;')
+                    line(y2='6', x1='0', x2='0')
+                    text(y='9', x='0', transform='', style='text-anchor: middle; display: block;')
+                      tspan(x='0', dy='.71em', dx='0') 0
+                  path.domain(d='M0,6V0H288.328125V6')
+                g.c3-axis.c3-axis-y(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip-yaxis)', transform='translate(0,0)', style='visibility: visible; opacity: 0;')
+                  text.c3-axis-y-label(transform='rotate(-90)', style='text-anchor: end;', x='0', dx='-0.5em', dy='1.2em')
+                  g.tick(transform='translate(0,244)', style='opacity: 1;')
+                    line(x2='-6')
+                    text(x='-9', y='0', style='text-anchor: end;')
+                      tspan(x='-9', dy='3') 10
+                  g.tick(transform='translate(0,217)', style='opacity: 1;')
+                    line(x2='-6')
+                    text(x='-9', y='0', style='text-anchor: end;')
+                      tspan(x='-9', dy='3') 15
+                  g.tick(transform='translate(0,189)', style='opacity: 1;')
+                    line(x2='-6')
+                    text(x='-9', y='0', style='text-anchor: end;')
+                      tspan(x='-9', dy='3') 20
+                  g.tick(transform='translate(0,162)', style='opacity: 1;')
+                    line(x2='-6')
+                    text(x='-9', y='0', style='text-anchor: end;')
+                      tspan(x='-9', dy='3') 25
+                  g.tick(transform='translate(0,134)', style='opacity: 1;')
+                    line(x2='-6')
+                    text(x='-9', y='0', style='text-anchor: end;')
+                      tspan(x='-9', dy='3') 30
+                  g.tick(transform='translate(0,106)', style='opacity: 1;')
+                    line(x2='-6')
+                    text(x='-9', y='0', style='text-anchor: end;')
+                      tspan(x='-9', dy='3') 35
+                  g.tick(transform='translate(0,79)', style='opacity: 1;')
+                    line(x2='-6')
+                    text(x='-9', y='0', style='text-anchor: end;')
+                      tspan(x='-9', dy='3') 40
+                  g.tick(transform='translate(0,51)', style='opacity: 1;')
+                    line(x2='-6')
+                    text(x='-9', y='0', style='text-anchor: end;')
+                      tspan(x='-9', dy='3') 45
+                  g.tick(transform='translate(0,24)', style='opacity: 1;')
+                    line(x2='-6')
+                    text(x='-9', y='0', style='text-anchor: end;')
+                      tspan(x='-9', dy='3') 50
+                  path.domain(d='M-6,1H0V266H-6')
+                g.c3-axis.c3-axis-y2(transform='translate(288.328125,0)', style='visibility: hidden; opacity: 0;')
+                  text.c3-axis-y2-label(transform='rotate(-90)', style='text-anchor: end;', x='0', dx='-0.5em', dy='-0.5em')
+                  g.tick(transform='translate(0,266)', style='opacity: 1;')
+                    line(x2='6', y2='0')
+                    text(x='9', y='0', style='text-anchor: start;')
+                      tspan(x='9', dy='3') 0
+                  g.tick(transform='translate(0,240)', style='opacity: 1;')
+                    line(x2='6', y2='0')
+                    text(x='9', y='0', style='text-anchor: start;')
+                      tspan(x='9', dy='3') 0.1
+                  g.tick(transform='translate(0,213)', style='opacity: 1;')
+                    line(x2='6', y2='0')
+                    text(x='9', y='0', style='text-anchor: start;')
+                      tspan(x='9', dy='3') 0.2
+                  g.tick(transform='translate(0,187)', style='opacity: 1;')
+                    line(x2='6', y2='0')
+                    text(x='9', y='0', style='text-anchor: start;')
+                      tspan(x='9', dy='3') 0.3
+                  g.tick(transform='translate(0,160)', style='opacity: 1;')
+                    line(x2='6', y2='0')
+                    text(x='9', y='0', style='text-anchor: start;')
+                      tspan(x='9', dy='3') 0.4
+                  g.tick(transform='translate(0,134)', style='opacity: 1;')
+                    line(x2='6', y2='0')
+                    text(x='9', y='0', style='text-anchor: start;')
+                      tspan(x='9', dy='3') 0.5
+                  g.tick(transform='translate(0,107)', style='opacity: 1;')
+                    line(x2='6', y2='0')
+                    text(x='9', y='0', style='text-anchor: start;')
+                      tspan(x='9', dy='3') 0.6
+                  g.tick(transform='translate(0,81)', style='opacity: 1;')
+                    line(x2='6', y2='0')
+                    text(x='9', y='0', style='text-anchor: start;')
+                      tspan(x='9', dy='3') 0.7
+                  g.tick(transform='translate(0,54)', style='opacity: 1;')
+                    line(x2='6', y2='0')
+                    text(x='9', y='0', style='text-anchor: start;')
+                      tspan(x='9', dy='3') 0.8
+                  g.tick(transform='translate(0,28)', style='opacity: 1;')
+                    line(x2='6', y2='0')
+                    text(x='9', y='0', style='text-anchor: start;')
+                      tspan(x='9', dy='3') 0.9
+                  g.tick(transform='translate(0,1)', style='opacity: 1;')
+                    line(x2='6', y2='0')
+                    text(x='9', y='0', style='text-anchor: start;')
+                      tspan(x='9', dy='3') 1
+                  path.domain(d='M6,1H0V266H6')
+              g(transform='translate(0.5,290.5)', style='visibility: hidden;')
+                g.c3-chart(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip-subchart)')
+                  g.c3-chart-bars
+                  g.c3-chart-lines
+                g.c3-brush(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip)', style='pointer-events: all; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
+                  rect.background(x='0', width='288.328125', style='visibility: hidden; cursor: crosshair;')
+                  rect.extent(x='0', width='0', style='cursor: move;')
+                  g.resize.e(transform='translate(0,0)', style='cursor: ew-resize; display: none;')
+                    rect(x='-3', width='6', height='6', style='visibility: hidden;')
+                  g.resize.w(transform='translate(0,0)', style='cursor: ew-resize; display: none;')
+                    rect(x='-3', width='6', height='6', style='visibility: hidden;')
+                g.c3-axis-x(transform='translate(0,0)', clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip-xaxis)', style='visibility: hidden; opacity: 0;')
+                  g.tick(transform='translate(145, 0)', style='opacity: 1;')
+                    line(y2='6', x1='0', x2='0')
+                    text(y='9', x='0', transform='', style='text-anchor: middle; display: block;')
+                      tspan(x='0', dy='.71em', dx='0') 0
+                  path.domain(d='M0,6V0H288.328125V6')
+              g(transform='translate(0,270)')
+                g.c3-legend-item.c3-legend-item-Other(style='visibility: hidden; cursor: pointer;')
+                  text(x='14', y='9', style='pointer-events: none;') Other
+                  rect.c3-legend-item-event(x='0', y='-5', width='0', height='0', style='fill-opacity: 0;')
+                  line.c3-legend-item-tile(x1='-2', y1='4', x2='8', y2='4', stroke-width='10', style='stroke: rgb(236, 239, 241); pointer-events: none;')
+                g.c3-legend-item.c3-legend-item-Desktop(style='visibility: hidden; cursor: pointer;')
+                  text(x='14', y='9', style='pointer-events: none;') Desktop
+                  rect.c3-legend-item-event(x='0', y='-5', width='0', height='0', style='fill-opacity: 0;')
+                  line.c3-legend-item-tile(x1='-2', y1='4', x2='8', y2='4', stroke-width='10', style='stroke: rgb(116, 90, 242); pointer-events: none;')
+                g.c3-legend-item.c3-legend-item-Tablet(style='visibility: hidden; cursor: pointer;')
+                  text(x='14', y='9', style='pointer-events: none;') Tablet
+                  rect.c3-legend-item-event(x='0', y='-5', width='0', height='0', style='fill-opacity: 0;')
+                  line.c3-legend-item-tile(x1='-2', y1='4', x2='8', y2='4', stroke-width='10', style='stroke: rgb(38, 198, 218); pointer-events: none;')
+                g.c3-legend-item.c3-legend-item-Mobile(style='visibility: hidden; cursor: pointer;')
+                  text(x='14', y='9', style='pointer-events: none;') Mobile
+                  rect.c3-legend-item-event(x='0', y='-5', width='0', height='0', style='fill-opacity: 0;')
+                  line.c3-legend-item-tile(x1='-2', y1='4', x2='8', y2='4', stroke-width='10', style='stroke: rgb(30, 136, 229); pointer-events: none;')
+              text.c3-title(x='144.1640625', y='0')
+            .c3-tooltip-container(style='position: absolute; pointer-events: none; display: none;')
+        div
+          hr.m-t-0.m-b-0
+        .card-body.text-center
+          ul.list-inline.m-b-0
+            li
+              h6.text-muted.text-info
+                i.fa.fa-circle.font-10.m-r-10
+                | Mobile
+            li
+              h6.text-muted.text-primary
+                i.fa.fa-circle.font-10.m-r-10
+                | Desktop
+            li
+              h6.text-muted.text-success
+                i.fa.fa-circle.font-10.m-r-10
+                | Tablet
+
+
+
+
+      script(src="./javascripts/angular.min.js")
+      script(src="./javascripts/jquery-2.1.1.min.js")
+      script(src="./javascripts/controllers/stats.js")
+      script.
+        $(document).ready(function() {
+        $('#summernote').summernote();
+        });

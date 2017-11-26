@@ -24,6 +24,15 @@ var app = angular.module('app', [])
         }
       };
 
+      $http.get("http://localhost:8088/api/v1/users/profile",config)
+      .then(function(response) {
+        $scope.administrator = response.data.administrator;
+      });
+
+      $scope.addExercise = function() {
+        $window.location.href="/new_exercise"
+      }
+
       var location = $window.location.pathname;
       var lastSlash = location.lastIndexOf("/")
       var lesson_id = location.substring(lastSlash+1,location.length)

@@ -89,7 +89,7 @@ var app = angular.module('app', [])
 
         var url = "http://localhost:8088/api/v1/solutions/"+exercise_id+"/solve?course_id="+course_id+"&lesson_id="+lesson_id
         var data = {
-          "code": code
+          "code": code,
         }
 
         $http.post(url, data,config)

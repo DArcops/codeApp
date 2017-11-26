@@ -76,7 +76,7 @@ block content
                   .form-group.row
                     label.control-label.text-right.col-md-3 Email
                     .col-md-9
-                      input.form-control(type='text', placeholder='example@admin.com')
+                      input.form-control(type='text', placeholder='example@admin.com' ng-model="emailNewAdmin")
                       small.form-control-feedback  Inserta el email del usuario a agregar
 
             hr
@@ -85,7 +85,7 @@ block content
                 .col-md-6
                   .row
                     .col-md-offset-3.col-md-9
-                      button.btn.btn-success(type='submit') Agregar
+                      button.btn.btn-success(type='submit' ng-click="addAdminUser()") Agregar
 
     script(src="./javascripts/angular.min.js")
     script(src="./javascripts/jquery-2.1.1.min.js")

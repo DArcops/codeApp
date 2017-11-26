@@ -47,6 +47,10 @@ router.get('/lesson/update/:lesson_id',function(req,res,next){
   res.render('./lesson/update')
 });
 
+router.get('/stats',function(req,res,next){
+  res.render('./user/stats')
+});
+
 
 ///////////////////////////////////////////////////////NEWWWWW!!!!!!!/////////////////////
 

@@ -12,6 +12,8 @@ block content
       .stickyside
         #top-menu.list-group
           button.list-group-item.text-themecolor(ng-repeat='exercise in exercises' ng-click='selectExercise(exercise.id)') {{$index+1+".- "+exercise.name}}
+      button.btn-rounded.btn-success(style="margin-left:15%;margin-top:10%" ng-show="administrator" ng-click="addExercise()")  Agregar Ejercicio
+
 
     script(src="./javascripts/angular.min.js")
     script(src="./javascripts/jquery-2.1.1.min.js")
