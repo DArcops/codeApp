@@ -17,8 +17,7 @@ block content
                 tr
                   th(style='width:90px;') Usuario
                   th Nombre
-                  th Ejercicios
-                  th Price
+                  th Ejercicios Resueltos
               tbody
                 tr(ng-repeat="u in users")
                   td
@@ -29,9 +28,8 @@ block content
                       a.link(href='javascript:void(0)') {{u.username}}
                     small.text-muted email : {{u.email}}
                   td
-                    h5 357
-                  td
-                    h5 $435
+                    h5 {{u.solved_exercises}}
+
 
   .row(ng-controller="Stats" ng-show="administrator" )
     .col-lg-8.col-xlg-9.col-md-7
@@ -39,18 +37,18 @@ block content
         .card-body(style="margin-left:20px;margin-top:20px;margin-bottom:20px;margin-right:20px;")
           .d-flex.flex-wrap
             div
-              h3.card-title Newsletter Campaign
-              h6.card-subtitle Overview of Newsletter Campaign
+              h3.card-title Soluciones enviadas
+              h6.card-subtitle en el curso
             .ml-auto.align-self-center
               ul.list-inline.m-b-0
                 li
                   h6.text-muted.text-success
                     i.fa.fa-circle.font-10.m-r-10
-                    | Open Rate
+                    | Envios Correctos
                 li
                   h6.text-muted.text-info
                     i.fa.fa-circle.font-10.m-r-10
-                    | Recurring Payments
+                    | Envios incorrectos
           .campaign.ct-charts
             .chartist-tooltip(style='top: 121px; left: 52.6719px;')
             svg.ct-chart-line(xmlns:ct='http://gionkunz.github.com/chartist-js/ct', width='100%', height='100%', style='width: 100%; height: 100%;')
@@ -139,244 +137,18 @@ block content
     .col-lg-4.col-md-5
       .card
         .card-body(style="margin-left:20px;margin-top:20px;margin-bottom:20px;margin-right:20px;")
-          h3.card-title Our Visitors
-          h6.card-subtitle Different Devices Used to Visit
-          #visitor.c3(style='height: 290px; width: 100%; max-height: 290px; position: relative;')
-            svg(width='288.328125', height='290', style='overflow: hidden;')
-              defs
-                clippath#c3-1511633183284-clip
-                  rect(width='288.328125', height='266')
-                clippath#c3-1511633183284-clip-xaxis
-                  rect(x='-31', y='-20', width='350.328125', height='40')
-                clippath#c3-1511633183284-clip-yaxis
-                  rect(x='-29', y='-4', width='20', height='290')
-                clippath#c3-1511633183284-clip-grid
-                  rect(width='288.328125', height='266')
-                clippath#c3-1511633183284-clip-subchart
-                  rect(width='288.328125')
-              g(transform='translate(0.5,4.5)')
-                text.c3-text.c3-empty(text-anchor='middle', dominant-baseline='middle', x='144.1640625', y='133', style='opacity: 0;')
-                rect.c3-zoom-rect(width='288.328125', height='266', style='opacity: 0;')
-                g.c3-regions(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip)', style='visibility: hidden;')
-                g.c3-grid(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip-grid)', style='visibility: hidden;')
-                  g.c3-xgrid-focus
-                    line.c3-xgrid-focus(x1='-10', x2='-10', y1='0', y2='266', style='visibility: hidden;')
-                g.c3-chart(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip)')
-                  g.c3-event-rects.c3-event-rects-single(style='fill-opacity: 0;')
-                    rect.c3-event-rect.c3-event-rect-0(x='0.8359375', y='0', width='288.328125', height='266')
-                  g.c3-chart-bars
-                    g.c3-chart-bar.c3-target.c3-target-Other(style='opacity: 1; pointer-events: none;')
-                      g.c3-shapes.c3-shapes-Other.c3-bars.c3-bars-Other(style='cursor: pointer;')
-                    g.c3-chart-bar.c3-target.c3-target-Desktop(style='opacity: 1; pointer-events: none;')
-                      g.c3-shapes.c3-shapes-Desktop.c3-bars.c3-bars-Desktop(style='cursor: pointer;')
-                    g.c3-chart-bar.c3-target.c3-target-Tablet(style='opacity: 1; pointer-events: none;')
-                      g.c3-shapes.c3-shapes-Tablet.c3-bars.c3-bars-Tablet(style='cursor: pointer;')
-                    g.c3-chart-bar.c3-target.c3-target-Mobile(style='opacity: 1; pointer-events: none;')
-                      g.c3-shapes.c3-shapes-Mobile.c3-bars.c3-bars-Mobile(style='cursor: pointer;')
-                  g.c3-chart-lines
-                    g.c3-chart-line.c3-target.c3-target-Other(style='opacity: 1; pointer-events: none;')
-                      g.c3-shapes.c3-shapes-Other.c3-lines.c3-lines-Other
-                      g.c3-shapes.c3-shapes-Other.c3-areas.c3-areas-Other
-                      g.c3-selected-circles.c3-selected-circles-Other
-                      g.c3-shapes.c3-shapes-Other.c3-circles.c3-circles-Other(style='cursor: pointer;')
-                    g.c3-chart-line.c3-target.c3-target-Desktop(style='opacity: 1; pointer-events: none;')
-                      g.c3-shapes.c3-shapes-Desktop.c3-lines.c3-lines-Desktop
-                      g.c3-shapes.c3-shapes-Desktop.c3-areas.c3-areas-Desktop
-                      g.c3-selected-circles.c3-selected-circles-Desktop
-                      g.c3-shapes.c3-shapes-Desktop.c3-circles.c3-circles-Desktop(style='cursor: pointer;')
-                    g.c3-chart-line.c3-target.c3-target-Tablet(style='opacity: 1; pointer-events: none;')
-                      g.c3-shapes.c3-shapes-Tablet.c3-lines.c3-lines-Tablet
-                      g.c3-shapes.c3-shapes-Tablet.c3-areas.c3-areas-Tablet
-                      g.c3-selected-circles.c3-selected-circles-Tablet
-                      g.c3-shapes.c3-shapes-Tablet.c3-circles.c3-circles-Tablet(style='cursor: pointer;')
-                    g.c3-chart-line.c3-target.c3-target-Mobile(style='opacity: 1; pointer-events: none;')
-                      g.c3-shapes.c3-shapes-Mobile.c3-lines.c3-lines-Mobile
-                      g.c3-shapes.c3-shapes-Mobile.c3-areas.c3-areas-Mobile
-                      g.c3-selected-circles.c3-selected-circles-Mobile
-                      g.c3-shapes.c3-shapes-Mobile.c3-circles.c3-circles-Mobile(style='cursor: pointer;')
-                  g.c3-chart-arcs(transform='translate(144.1640625,128)')
-                    text.c3-chart-arcs-title(style='text-anchor: middle; opacity: 1;') Our visitor
-                    g.c3-chart-arc.c3-target.c3-target-Other
-                      g.c3-shapes.c3-shapes-Other.c3-arcs.c3-arcs-Other
-                        path.c3-shape.c3-shape.c3-arc.c3-arc-Other(transform='', style='fill: rgb(236, 239, 241); cursor: pointer; opacity: 1;', d='M-113.69797511054642,43.11995426437235A121.6,121.6 0 0,1 -56.51033772052232,-107.67145271943028L-47.21587427964694,-89.96233220636609A101.6,101.6 0 0,0 -94.99765025683813,36.02785652352164Z')
-                      text(dy='.35em', style='opacity: 1; text-anchor: middle; pointer-events: none;', transform='translate(-90.95838008843717,-34.49596341149787)')
-                    g.c3-chart-arc.c3-target.c3-target-Desktop
-                      g.c3-shapes.c3-shapes-Desktop.c3-arcs.c3-arcs-Desktop
-                        path.c3-shape.c3-shape.c3-arc.c3-arc-Desktop(transform='', style='fill: rgb(116, 90, 242); cursor: pointer; opacity: 1;', d='M-56.51033772052232,-107.67145271943028A121.6,121.6 0 0,1 -1.3034005345198293e-13,-121.6L-1.0890254466053837e-13,-101.6A101.6,101.6 0 0,0 -47.21587427964694,-89.96233220636609Z')
-                      text(dy='.35em', style='opacity: 1; text-anchor: middle; pointer-events: none;', transform='translate(-23.280627821893702,-94.45321999920633)')
-                    g.c3-chart-arc.c3-target.c3-target-Tablet
-                      g.c3-shapes.c3-shapes-Tablet.c3-arcs.c3-arcs-Tablet
-                        path.c3-shape.c3-shape.c3-arc.c3-arc-Tablet(transform='', style='fill: rgb(38, 198, 218); cursor: pointer; opacity: 1;', d='M80.63571524208072,91.01890697760587A121.6,121.6 0 0,1 -113.69797511054642,43.11995426437235L-94.99765025683813,36.02785652352164A101.6,101.6 0 0,0 67.37326207726481,76.04869201418384Z')
-                      text(dy='.35em', style='opacity: 1; text-anchor: middle; pointer-events: none;', transform='translate(-23.280627821893592,94.45321999920634)')
-                    g.c3-chart-arc.c3-target.c3-target-Mobile
-                      g.c3-shapes.c3-shapes-Mobile.c3-arcs.c3-arcs-Mobile
-                        path.c3-shape.c3-shape.c3-arc.c3-arc-Mobile(transform='', style='fill: rgb(30, 136, 229); cursor: pointer; opacity: 1;', d='M7.445852538815907e-15,-121.6A121.6,121.6 0 0,1 80.63571524208072,91.01890697760587L67.37326207726481,76.04869201418384A101.6,101.6 0 0,0 6.221205739668554e-15,-101.6Z')
-                      text(dy='.35em', style='opacity: 1; text-anchor: middle; pointer-events: none;', transform='translate(90.95838008843715,-34.495963411497875)')
-                  g.c3-chart-texts
-                    g.c3-chart-text.c3-target.c3-target-Other(style='opacity: 1; pointer-events: none;')
-                      g.c3-texts.c3-texts-Other
-                    g.c3-chart-text.c3-target.c3-target-Desktop(style='opacity: 1; pointer-events: none;')
-                      g.c3-texts.c3-texts-Desktop
-                    g.c3-chart-text.c3-target.c3-target-Tablet(style='opacity: 1; pointer-events: none;')
-                      g.c3-texts.c3-texts-Tablet
-                    g.c3-chart-text.c3-target.c3-target-Mobile(style='opacity: 1; pointer-events: none;')
-                      g.c3-texts.c3-texts-Mobile
-                g.c3-grid.c3-grid-lines(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip-grid)')
-                  g.c3-xgrid-lines
-                  g.c3-ygrid-lines
-                g.c3-axis.c3-axis-x(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip-xaxis)', transform='translate(0,266)', style='visibility: visible; opacity: 0;')
-                  text.c3-axis-x-label(transform='', style='text-anchor: end;', x='288.328125', dx='-0.5em', dy='-0.5em')
-                  g.tick(transform='translate(145, 0)', style='opacity: 1;')
-                    line(y2='6', x1='0', x2='0')
-                    text(y='9', x='0', transform='', style='text-anchor: middle; display: block;')
-                      tspan(x='0', dy='.71em', dx='0') 0
-                  path.domain(d='M0,6V0H288.328125V6')
-                g.c3-axis.c3-axis-y(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip-yaxis)', transform='translate(0,0)', style='visibility: visible; opacity: 0;')
-                  text.c3-axis-y-label(transform='rotate(-90)', style='text-anchor: end;', x='0', dx='-0.5em', dy='1.2em')
-                  g.tick(transform='translate(0,244)', style='opacity: 1;')
-                    line(x2='-6')
-                    text(x='-9', y='0', style='text-anchor: end;')
-                      tspan(x='-9', dy='3') 10
-                  g.tick(transform='translate(0,217)', style='opacity: 1;')
-                    line(x2='-6')
-                    text(x='-9', y='0', style='text-anchor: end;')
-                      tspan(x='-9', dy='3') 15
-                  g.tick(transform='translate(0,189)', style='opacity: 1;')
-                    line(x2='-6')
-                    text(x='-9', y='0', style='text-anchor: end;')
-                      tspan(x='-9', dy='3') 20
-                  g.tick(transform='translate(0,162)', style='opacity: 1;')
-                    line(x2='-6')
-                    text(x='-9', y='0', style='text-anchor: end;')
-                      tspan(x='-9', dy='3') 25
-                  g.tick(transform='translate(0,134)', style='opacity: 1;')
-                    line(x2='-6')
-                    text(x='-9', y='0', style='text-anchor: end;')
-                      tspan(x='-9', dy='3') 30
-                  g.tick(transform='translate(0,106)', style='opacity: 1;')
-                    line(x2='-6')
-                    text(x='-9', y='0', style='text-anchor: end;')
-                      tspan(x='-9', dy='3') 35
-                  g.tick(transform='translate(0,79)', style='opacity: 1;')
-                    line(x2='-6')
-                    text(x='-9', y='0', style='text-anchor: end;')
-                      tspan(x='-9', dy='3') 40
-                  g.tick(transform='translate(0,51)', style='opacity: 1;')
-                    line(x2='-6')
-                    text(x='-9', y='0', style='text-anchor: end;')
-                      tspan(x='-9', dy='3') 45
-                  g.tick(transform='translate(0,24)', style='opacity: 1;')
-                    line(x2='-6')
-                    text(x='-9', y='0', style='text-anchor: end;')
-                      tspan(x='-9', dy='3') 50
-                  path.domain(d='M-6,1H0V266H-6')
-                g.c3-axis.c3-axis-y2(transform='translate(288.328125,0)', style='visibility: hidden; opacity: 0;')
-                  text.c3-axis-y2-label(transform='rotate(-90)', style='text-anchor: end;', x='0', dx='-0.5em', dy='-0.5em')
-                  g.tick(transform='translate(0,266)', style='opacity: 1;')
-                    line(x2='6', y2='0')
-                    text(x='9', y='0', style='text-anchor: start;')
-                      tspan(x='9', dy='3') 0
-                  g.tick(transform='translate(0,240)', style='opacity: 1;')
-                    line(x2='6', y2='0')
-                    text(x='9', y='0', style='text-anchor: start;')
-                      tspan(x='9', dy='3') 0.1
-                  g.tick(transform='translate(0,213)', style='opacity: 1;')
-                    line(x2='6', y2='0')
-                    text(x='9', y='0', style='text-anchor: start;')
-                      tspan(x='9', dy='3') 0.2
-                  g.tick(transform='translate(0,187)', style='opacity: 1;')
-                    line(x2='6', y2='0')
-                    text(x='9', y='0', style='text-anchor: start;')
-                      tspan(x='9', dy='3') 0.3
-                  g.tick(transform='translate(0,160)', style='opacity: 1;')
-                    line(x2='6', y2='0')
-                    text(x='9', y='0', style='text-anchor: start;')
-                      tspan(x='9', dy='3') 0.4
-                  g.tick(transform='translate(0,134)', style='opacity: 1;')
-                    line(x2='6', y2='0')
-                    text(x='9', y='0', style='text-anchor: start;')
-                      tspan(x='9', dy='3') 0.5
-                  g.tick(transform='translate(0,107)', style='opacity: 1;')
-                    line(x2='6', y2='0')
-                    text(x='9', y='0', style='text-anchor: start;')
-                      tspan(x='9', dy='3') 0.6
-                  g.tick(transform='translate(0,81)', style='opacity: 1;')
-                    line(x2='6', y2='0')
-                    text(x='9', y='0', style='text-anchor: start;')
-                      tspan(x='9', dy='3') 0.7
-                  g.tick(transform='translate(0,54)', style='opacity: 1;')
-                    line(x2='6', y2='0')
-                    text(x='9', y='0', style='text-anchor: start;')
-                      tspan(x='9', dy='3') 0.8
-                  g.tick(transform='translate(0,28)', style='opacity: 1;')
-                    line(x2='6', y2='0')
-                    text(x='9', y='0', style='text-anchor: start;')
-                      tspan(x='9', dy='3') 0.9
-                  g.tick(transform='translate(0,1)', style='opacity: 1;')
-                    line(x2='6', y2='0')
-                    text(x='9', y='0', style='text-anchor: start;')
-                      tspan(x='9', dy='3') 1
-                  path.domain(d='M6,1H0V266H6')
-              g(transform='translate(0.5,290.5)', style='visibility: hidden;')
-                g.c3-chart(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip-subchart)')
-                  g.c3-chart-bars
-                  g.c3-chart-lines
-                g.c3-brush(clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip)', style='pointer-events: all; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
-                  rect.background(x='0', width='288.328125', style='visibility: hidden; cursor: crosshair;')
-                  rect.extent(x='0', width='0', style='cursor: move;')
-                  g.resize.e(transform='translate(0,0)', style='cursor: ew-resize; display: none;')
-                    rect(x='-3', width='6', height='6', style='visibility: hidden;')
-                  g.resize.w(transform='translate(0,0)', style='cursor: ew-resize; display: none;')
-                    rect(x='-3', width='6', height='6', style='visibility: hidden;')
-                g.c3-axis-x(transform='translate(0,0)', clip-path='url(https://wrappixel.com/demos/admin-templates/material-pro/material/index.html#c3-1511633183284-clip-xaxis)', style='visibility: hidden; opacity: 0;')
-                  g.tick(transform='translate(145, 0)', style='opacity: 1;')
-                    line(y2='6', x1='0', x2='0')
-                    text(y='9', x='0', transform='', style='text-anchor: middle; display: block;')
-                      tspan(x='0', dy='.71em', dx='0') 0
-                  path.domain(d='M0,6V0H288.328125V6')
-              g(transform='translate(0,270)')
-                g.c3-legend-item.c3-legend-item-Other(style='visibility: hidden; cursor: pointer;')
-                  text(x='14', y='9', style='pointer-events: none;') Other
-                  rect.c3-legend-item-event(x='0', y='-5', width='0', height='0', style='fill-opacity: 0;')
-                  line.c3-legend-item-tile(x1='-2', y1='4', x2='8', y2='4', stroke-width='10', style='stroke: rgb(236, 239, 241); pointer-events: none;')
-                g.c3-legend-item.c3-legend-item-Desktop(style='visibility: hidden; cursor: pointer;')
-                  text(x='14', y='9', style='pointer-events: none;') Desktop
-                  rect.c3-legend-item-event(x='0', y='-5', width='0', height='0', style='fill-opacity: 0;')
-                  line.c3-legend-item-tile(x1='-2', y1='4', x2='8', y2='4', stroke-width='10', style='stroke: rgb(116, 90, 242); pointer-events: none;')
-                g.c3-legend-item.c3-legend-item-Tablet(style='visibility: hidden; cursor: pointer;')
-                  text(x='14', y='9', style='pointer-events: none;') Tablet
-                  rect.c3-legend-item-event(x='0', y='-5', width='0', height='0', style='fill-opacity: 0;')
-                  line.c3-legend-item-tile(x1='-2', y1='4', x2='8', y2='4', stroke-width='10', style='stroke: rgb(38, 198, 218); pointer-events: none;')
-                g.c3-legend-item.c3-legend-item-Mobile(style='visibility: hidden; cursor: pointer;')
-                  text(x='14', y='9', style='pointer-events: none;') Mobile
-                  rect.c3-legend-item-event(x='0', y='-5', width='0', height='0', style='fill-opacity: 0;')
-                  line.c3-legend-item-tile(x1='-2', y1='4', x2='8', y2='4', stroke-width='10', style='stroke: rgb(30, 136, 229); pointer-events: none;')
-              text.c3-title(x='144.1640625', y='0')
-            .c3-tooltip-container(style='position: absolute; pointer-events: none; display: none;')
-        div
-          hr.m-t-0.m-b-0
-        .card-body.text-center
-          ul.list-inline.m-b-0
-            li
-              h6.text-muted.text-info
-                i.fa.fa-circle.font-10.m-r-10
-                | Mobile
-            li
-              h6.text-muted.text-primary
-                i.fa.fa-circle.font-10.m-r-10
-                | Desktop
-            li
-              h6.text-muted.text-success
-                i.fa.fa-circle.font-10.m-r-10
-                | Tablet
-
+          h3.card-title Usuarios
+          h6.card-subtitle Por Curso
+          canvas#oilChart(width='600', height='730')
 
 
 
       script(src="./javascripts/angular.min.js")
+      script(src="./javascripts/chart.js")
       script(src="./javascripts/jquery-2.1.1.min.js")
       script(src="./javascripts/controllers/stats.js")
       script.
         $(document).ready(function() {
         $('#summernote').summernote();
         });
+      

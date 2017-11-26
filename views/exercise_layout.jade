@@ -72,20 +72,7 @@ html(lang='en' ng-app="app")
             // ==============================================================
             ul.navbar-nav.mr-auto.mt-md-0
 
-              li.nav-item.dropdown.mega-dropdown.show
-                a.nav-link.dropdown-toggle.text-muted.waves-effect.waves-dark(href='', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
-                  i.fa.fa-plus-circle  Ejercicios
-                .dropdown-menu.scale-up-left.show
-                  ul.mega-dropdown-menu.row
-                    li.col-lg-3.col-xlg-4.m-b-30
-                      h4.m-b-20 Ejercicios
-                      // List style
-                      ul.list-style-none
-                        li(ng-repeat="exercise in exercises")
-                          a(href='javascript:void(0)')
-                            i.fa.fa-check.text-success
-                            |  {{exercise.name}}
-
+              
             // ==============================================================
             // User profile and search
             // ==============================================================
