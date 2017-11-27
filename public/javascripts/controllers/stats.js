@@ -31,6 +31,13 @@ var app = angular.module('app', [])
 
     });
 
+    $http.get("http://localhost:8088/api/v1/solutions",config)
+    .then(function(response) {
+      console.log(response.data)
+      $scope.acceptedSolutions = response.data.accepted;
+      $scope.wrongSolutions = response.data.wrong;
+    });
+
 
     $scope.change = function() {
       $http.get("http://localhost:8088/api/v1/courses/"+$scope.selectedCourse+"/users_suscribed",config)
@@ -41,40 +48,40 @@ var app = angular.module('app', [])
     };
 
     var labels = [];
+    var data = [];
 
     $http.get("http://localhost:8088/api/v1/courses/",config)
       .then(function(response) {
         var re = response.data;
         for(var i =0; i < re.length; i++){
           labels.push(re[i].name)
+          data.push(re[i].suscribers)
         }
+        var oilCanvas = document.getElementById("oilChart");
+        Chart.defaults.global.defaultFontFamily = "Lato";
+        Chart.defaults.global.defaultFontSize = 15;
+        var oilData = {
+        labels: labels,
+        datasets: [
+        {
+        data: data,
+        backgroundColor: [
+        "#84FF63",
+        "#8463FF",
+        "#6384FF",
+        "#FB8C00",
+        "#616161",
+        "#76FF03",
+        ]
+        }]
+        };
+        var pieChart = new Chart(oilCanvas, {
+        type: 'pie',
+        data: oilData
+        });
     });
 
-    var oilCanvas = document.getElementById("oilChart");
-    Chart.defaults.global.defaultFontFamily = "Lato";
-    Chart.defaults.global.defaultFontSize = 10;
-    var oilData = {
-    labels: [
-    "Saudi Arabia",
-    "Russia",
 
-    ],
-    datasets: [
-    {
-    data: [133.3, 86.2],
-    backgroundColor: [
-    "#FF6384",
-    "#63FF84",
-    "#84FF63",
-    "#8463FF",
-    "#6384FF"
-    ]
-    }]
-    };
-    var pieChart = new Chart(oilCanvas, {
-    type: 'pie',
-    data: oilData
-    });
   });
 
 ////////////////////CONTROLLER FOR LAYOUT/////////////////////

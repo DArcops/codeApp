@@ -94,50 +94,50 @@ block content
                   line.ct-point(x1='633.65625', y1='237.33333333333334', x2='633.66625', y2='237.33333333333334', value='1')
               g.ct-labels
                 foreignobject(style='overflow: visible;', x='30', y='250', width='86.23660714285714', height='20')
-                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 1
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 19-Nov
                 foreignobject(style='overflow: visible;', x='116.23660714285714', y='250', width='86.23660714285714', height='20')
-                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 2
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 20-Nov
                 foreignobject(style='overflow: visible;', x='202.47321428571428', y='250', width='86.23660714285717', height='20')
-                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 3
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 21-Nov
                 foreignobject(style='overflow: visible;', x='288.70982142857144', y='250', width='86.23660714285711', height='20')
-                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 4
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 22-Nov
                 foreignobject(style='overflow: visible;', x='374.94642857142856', y='250', width='86.23660714285711', height='20')
-                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 5
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 23-Nov
                 foreignobject(style='overflow: visible;', x='461.18303571428567', y='250', width='86.23660714285722', height='20')
-                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 6
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 24-Nov
                 foreignobject(style='overflow: visible;', x='547.4196428571429', y='250', width='86.23660714285711', height='20')
-                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 7
+                  span.ct-label.ct-horizontal.ct-end(style='width: 86px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 25-Nov
                 foreignobject(style='overflow: visible;', x='633.65625', y='250', width='30', height='20')
-                  span.ct-label.ct-horizontal.ct-end(style='width: 30px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 8
+                  span.ct-label.ct-horizontal.ct-end(style='width: 30px; height: 20px', xmlns='http://www.w3.org/2000/xmlns/') 26-Nov
                 foreignobject(style='overflow: visible;', y='168.33333333333331', x='10', height='76.66666666666667', width='10')
-                  span.ct-label.ct-vertical.ct-start(style='height: 77px; width: 10px', xmlns='http://www.w3.org/2000/xmlns/') 0k
+                  span.ct-label.ct-vertical.ct-start(style='height: 77px; width: 10px', xmlns='http://www.w3.org/2000/xmlns/') 0
                 foreignobject(style='overflow: visible;', y='91.66666666666664', x='10', height='76.66666666666667', width='10')
-                  span.ct-label.ct-vertical.ct-start(style='height: 77px; width: 10px', xmlns='http://www.w3.org/2000/xmlns/') 10k
+                  span.ct-label.ct-vertical.ct-start(style='height: 77px; width: 10px', xmlns='http://www.w3.org/2000/xmlns/') 10
                 foreignobject(style='overflow: visible;', y='15', x='10', height='76.66666666666666', width='10')
-                  span.ct-label.ct-vertical.ct-start(style='height: 77px; width: 10px', xmlns='http://www.w3.org/2000/xmlns/') 20k
+                  span.ct-label.ct-vertical.ct-start(style='height: 77px; width: 10px', xmlns='http://www.w3.org/2000/xmlns/') 20
                 foreignobject(style='overflow: visible;', y='-15', x='10', height='30', width='10')
-                  span.ct-label.ct-vertical.ct-start(style='height: 30px; width: 10px', xmlns='http://www.w3.org/2000/xmlns/') 30k
+                  span.ct-label.ct-vertical.ct-start(style='height: 30px; width: 10px', xmlns='http://www.w3.org/2000/xmlns/') 30
               defs
                 lineargradient#gradient(x1='0', y1='1', x2='0', y2='0')
                   stop(offset='0', stop-color='rgba(255, 255, 255, 1)')
                   stop(offset='1', stop-color='rgba(38, 198, 218, 1)')
           .row.text-center
             .col-lg-4.col-md-4.m-t-20
-              h1.m-b-0.font-light 5098
-              small Total Sent
+              h1.m-b-0.font-light {{acceptedSolutions + wrongSolutions}}
+              small Total de Envios
             .col-lg-4.col-md-4.m-t-20
-              h1.m-b-0.font-light 4156
-              small Mail Open Rate
+              h1.m-b-0.font-light {{acceptedSolutions}}
+              small Total de Envios Correctos
             .col-lg-4.col-md-4.m-t-20
-              h1.m-b-0.font-light 1369
-              small Click Rate
+              h1.m-b-0.font-light {{wrongSolutions}}
+              small Total de Envios Incorrectos
 
 
 
     .col-lg-4.col-md-5
       .card
         .card-body(style="margin-left:20px;margin-top:20px;margin-bottom:20px;margin-right:20px;")
-          h3.card-title Usuarios
+          h3.card-title Numero de Usuarios
           h6.card-subtitle Por Curso
           canvas#oilChart(width='600', height='730')
 
@@ -151,4 +151,3 @@ block content
         $(document).ready(function() {
         $('#summernote').summernote();
         });
-      
