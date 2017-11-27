@@ -51,6 +51,10 @@ router.get('/stats',function(req,res,next){
   res.render('./user/stats')
 });
 
+router.get('/contact',function(req,res,next){
+  res.render('./user/contact')
+});
+
 
 ///////////////////////////////////////////////////////NEWWWWW!!!!!!!/////////////////////
 
